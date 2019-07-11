@@ -1,4 +1,4 @@
-# JS_Boss
+# JS_BosJs
 Rogue like rps boss fight game, written on NodeJS. 
 
 # Game Idea
