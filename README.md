@@ -1,7 +1,7 @@
 # JS_Boss
 Rogue like rps boss fight game, written on NodeJS. 
 
-#Game Idea
+# Game Idea
   The BosJs game is a rogue-like based boss-fight focused game, that includes the Rock/Paper/Scissors mechanics. 
   
   Player will start with base stats and will fight with enemies throughout the game, choosing where to attack and where to defend.
