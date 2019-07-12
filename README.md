@@ -61,7 +61,7 @@ Rogue like rps boss fight game, written on NodeJS.
       - For the stats order - refer to highscore in Game Design Bulletpoint
       - Share on Twitter button
       - Play again button
-    - Leaderboard
+   - Leaderboard
       - Shows all players, goes from maximum passes levels and down. 
       - Max amount of leaders should be discussed
   * Models
