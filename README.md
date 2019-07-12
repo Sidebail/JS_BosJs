@@ -56,11 +56,14 @@ Rogue like rps boss fight game, written on NodeJS.
           - Attack buttons under the player
       - When enemy dies:
           - Items/Upgrades to choose from on more right than numeric stats
-   - Highscore page
-      - Shows all the highscore line by line
+   - Score page
+      - Shows all acquitred stats line by line
       - For the stats order - refer to highscore in Game Design Bulletpoint
       - Share on Twitter button
       - Play again button
+    - Leaderboard
+      - Shows all players, goes from maximum passes levels and down. 
+      - Max amount of leaders should be discussed
   * Models
     - Player model
       - Name
