@@ -33,7 +33,7 @@ Rogue like rps boss fight game, written on NodeJS.
         - Equipped Items
         - List of 10 last defeated bosses, which features
              - Name
-             - Tier
+             - Tier (1-5)
              - MaxHealth/AttackDamage/Armor
    - Player can share his achievements in Twitter!
    
