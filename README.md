@@ -1,3 +1,13 @@
+# Install Instructions
+Having Node.Js on your computer is a must. 
+
+Run these commands to install express generator and node modules in the order that they appear:
+
+express . --view=pug 
+npm install
+npm install --save-dev nodemon
+npm install --save mongoose
+
 # JS_BosJs
 Rogue like rps boss fight game, written on NodeJS. 
 
