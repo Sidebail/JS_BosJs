@@ -1,8 +1,18 @@
+require('dotenv').config();
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+
+// connect mongoose
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/test?retryWrites=true&w=majority`, { useNewUrlParser: true});
+// mongoose variables
+var db = mongoose.connection;
+db.on('error', err => console.error(err));
+db.once('open', () => console.log('Connected to Mongodb'));
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
