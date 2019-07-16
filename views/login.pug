@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .container
+    h1 #{buttonText} Form
+
+    form(method="POST")
+      .form-group
+        label Username
+        input.form-control(name="username" type="text")
+      .form-group
+        label Password
+        input.form-control(name="password" type="password")
+      button.btn.btn-primary(type="submit")= buttonText
