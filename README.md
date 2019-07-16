@@ -11,6 +11,8 @@ npm install --save-dev nodemon
 
 npm install --save mongoose
 
+npm install dotenv
+
 # JS_BosJs
 Rogue like rps boss fight game, written on NodeJS. 
 
