@@ -7,7 +7,8 @@ var tier3Prefixes = [`Warchief`,`Captain`,`Pirate`,`Wizard`,`Smart`]
 var tier4Prefixes = [`Elder`,`Ancient`,`Centurion`,`King`,`Vengeful`]
 var tier5Prefixes = [`Unstoppable`,`Invincible`,`Godlike`,`Magnificent`,`Super-duper`]
 
-var healthMaxMins = [3,10,25,55,80][7,17,40,70,100]
+var healthMaxMins = [3,10,25,55,80][7,17,40,70,100];
+var attackMaxMins = [1,3,8,18,30][3,7,13,26,50];
 
 //Name is setted randomly
 // Tier 1 doesnt have prefix
@@ -36,28 +37,13 @@ const enemySchema = new Schema({
     },
 
     makeStats: function(){
-        switch(tier){
-            case 1: 
-            health = Math.floor(Math.random() * (healthMaxMins[1] - healthMaxMins[1][1])) + healthMaxMins[1][1];
+       health = Math.floor(Math.random() * (healthMaxMins[tier-1] - healthMaxMins[tier-1][tier-1])) + healthMaxMins[tier-1][tier-1];
+       attack = Math.floor(Math.random() * (attackMaxMins[tier-1] - attackMaxMins[tier-1][tier-1])) + attackMaxMins[tier-1][tier-1];
 
-            break;
-            case 2: 
-            health = Math.floor(Math.random() * (healthMaxMins[2] - healthMaxMins[2][2])) + healthMaxMins[2][2];
-
-            break;
-            case 3: 
-            health = Math.floor(Math.random() * (healthMaxMins[3] - healthMaxMins[3][3])) + healthMaxMins[3][3];
-
-            break;
-            case 4: 
-            health = Math.floor(Math.random() * (healthMaxMins[4] - healthMaxMins[4][4])) + healthMaxMins[4][4];
-
-            break;
-            case 5: 
-            health = Math.floor(Math.random() * (healthMaxMins[5] - healthMaxMins[5][5])) + healthMaxMins[5][5];
-
-            break;                
-        }
+       if(tier>2){
+           armor = Math.floor(Math.random() * ((tier + 5) - (tier - 3)) + (tier - 3));
+       }
+       
     },
 
     recieveDamage: function(damage){
@@ -72,9 +58,7 @@ const enemySchema = new Schema({
     createEnemy: function(tier, animIdle, animAttack, animDefend){
         this.tier = tier;
 
-        this.health = health;
-        this.attack = attack;
-        this.armor = armor;
+        makeStats();
        
         this.animIdle = animIdle;
         this.animAttack = animAttack;
