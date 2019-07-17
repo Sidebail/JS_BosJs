@@ -7,41 +7,31 @@ const playerSchema = new Schema({
     attack: Number,
     armor: Number,
     level: Number,
-    pierce: Number,
+    //pierce: Number,
     animIdle: String,
     animAttack: String,
-    animDefend: String
-});
+    animDefend: String,
+    //inventory: Item[3] -- NEEDS REVISE!
 
-const Player = mongoose.model('Player', playerSchema);
-
-module.exports = Player;
-
-/*
-const classSchema = new Schema({
-    teacher: String,
-    courseCode: String,
-    title: String
-});
-
-const projectSchema = new Schema({
-    name: {
-        type: String,
-        required: true
+    recieveDamage: function(damage){
+        health = health - (damage-armor);
     },
-    description: {
-        type: String,
-        required: true
+    
+    increaseStatistic: function(stringInput, value){
+        switch(stringInput){
+            case `health`: health = health + value; break;
+            case `attack`: attack = attack + value; break;
+            case `armor`: armor = armor + value; break;
+            default: console.log(`ERROR: player.js->increaseStatistic(${stringInput},${value})`); break;
+        }
     },
-    state: {
-        type: String,
-        required: true
-    },
-    picture: {
-        type: String,
-        required: true
+    
+    increaseLevel: function(){
+        level++;
     }
 });
 
 
-*/
+
+const Player = mongoose.model('Player', playerSchema);
+module.exports = Player;
