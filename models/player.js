@@ -14,7 +14,12 @@ const playerSchema = new Schema({
     //inventory: Item[3] -- NEEDS REVISE!
 
     recieveDamage: function(damage){
-        health = health - (damage-armor);
+        if(damage-armor > 0){
+            health = health - (damage-armor);
+        }else{
+            console.log(`Negative value damage - armor value`);
+            health = health - 1;
+        }
     },
     
     increaseStatistic: function(stringInput, value){
