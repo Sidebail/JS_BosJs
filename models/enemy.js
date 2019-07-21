@@ -24,8 +24,10 @@ const enemySchema = new Schema({
 
     animIdle: String,
     animAttack: String,
-    animDefend: String,
+    animDefend: String
+});
 
+/*
     makeName: function(){
         switch(tier){
             case 1: name = enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
@@ -66,8 +68,7 @@ const enemySchema = new Schema({
         makeName();
 
     }
-});
-
+*/
 const Enemy = mongoose.model('Enemy', enemySchema);
 
 module.exports = Enemy;

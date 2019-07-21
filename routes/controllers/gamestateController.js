@@ -1,4 +1,60 @@
-const Player = require('../models/player');
+const express = require('express');
+const router = express.Router();
+const Player = require('../../models/player');
+const EnemyModel = require('../../models/enemy');
+
+/* THIS IS TEMPORARY */
+
+var playerChraracter = {
+  name: "Tester",
+  health: 10,
+  attack: 1,
+  armor: 0,
+  level: 1,
+  //pierce: Number,
+  animIdle: String,
+  animAttack: String,
+  animDefend: String,
+  //inventory: Item[3] -- NEEDS REVISE!
+
+  recieveDamage: function(damage){
+      if(damage-armor > 0){
+          health = health - (damage-armor);
+      }else{
+          console.log(`Negative value damage - armor value`);
+          health = health - 1;
+      }
+  },
+  
+  increaseStatistic: function(stringInput, value){
+      switch(stringInput){
+          case `health`: health = health + value; break;
+          case `attack`: attack = attack + value; break;
+          case `armor`: armor = armor + value; break;
+          default: console.log(`ERROR: player.js->increaseStatistic(${stringInput},${value})`); break;
+      }
+  },
+  
+  increaseLevel: function(){
+      level++;
+  }
+}
+
+//////////////////////
+router.get('/',async(req,res)=>{
+  res.render('gameview',{playerChraracter})
+});
+
+
+//SEND PLAYER DATA TO GAMEVIEW
+exports.createPlayer = async(req,res) => {
+
+  
+
+}
+
+
+module.exports = router;
 
 /*
 const Project = require('../../models/project');
@@ -66,4 +122,29 @@ exports.deleteProjectById = async (req, res) => {
   res.redirect('/projects');
 };
 
+*/
+
+
+/*
+ recieveDamage: function(damage){
+        if(damage-armor > 0){
+            health = health - (damage-armor);
+        }else{
+            console.log(`Negative value damage - armor value`);
+            health = health - 1;
+        }
+    },
+    
+    increaseStatistic: function(stringInput, value){
+        switch(stringInput){
+            case `health`: health = health + value; break;
+            case `attack`: attack = attack + value; break;
+            case `armor`: armor = armor + value; break;
+            default: console.log(`ERROR: player.js->increaseStatistic(${stringInput},${value})`); break;
+        }
+    },
+    
+    increaseLevel: function(){
+        level++;
+    }
 */
