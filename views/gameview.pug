@@ -1,8 +1,28 @@
 head
     title Defeat Enemies!
-    
-block content
-    h1#level
+    style.
+        li{
+            background-color: white;
+        }
+        body {
+            /* The image used */
+            background-image: url("https://img.itch.zone/aW1hZ2UvMzQyNjAwLzE2OTg4MzEucG5n/original/DOT1NH.png");
+
+            /* Full height */
+            height: 100%; 
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        }
+
+        html { 
+            background-color: yellow;
+        }
+body#content
+    h1#level(style="background-color: white;")
     table
         tr 
             th
@@ -45,6 +65,14 @@ block content
                         p#eAttack
                     li
                         p#eArmor
+            td 
+                ul
+                    li
+                        button(class="btn btn-primary",hidden='hidden')#drop1
+                    li
+                        button(class="btn btn-primary",hidden='hidden')#drop2
+                    li
+                        button(class="btn btn-primary", hidden='hidden')#drop3 
     script(src='/dist/bundle.js')      
 
     

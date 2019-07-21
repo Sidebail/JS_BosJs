@@ -21,15 +21,30 @@ const eHealth = document.getElementById('eHealth');
 const eAttack = document.getElementById('eAttack');
 const eArmor = document.getElementById('eArmor');
 const ePicture = document.getElementById('ePicture');
+//Drops
+const drop1 = document.getElementById('drop1');
+const drop2 = document.getElementById('drop2');
+const drop3 = document.getElementById('drop3');
 var tier = 1;
+//Html element
+const htmlEl = document.getElementById('content');
+console.log(htmlEl)
+//Different backgrounds. Changing by tiers
+const bgArray = [
+    /* Tier 1 - Village */ `https://img.itch.zone/aW1hZ2UvMzQyNjAwLzE2OTg4MzEucG5n/original/DOT1NH.png`,
+    /* Tier 2 - Forrest */ `https://steamcdn-a.akamaihd.net/steamcommunity/public/images/items/428550/3288949bd5d35b3bcfa9de0b65faade54bbd701c.jpg`,
+    /* Tier 3 -  Mountains*/ `https://i.ibb.co/zHN6p76/snow.png`,
+    /* Tier 4 - Castle  */ `https://backgroundcheckall.com/wp-content/uploads/2018/10/bowser-castle-background-6.png`,
+    /* Tier 5 - Hell */ `https://img.wallpapersafari.com/desktop/1920/1080/84/74/8Y2GRE.jpg`
+]
 
 
 /* Creating the player object. THIS SHOULD BE GETTING THE NICKNAME FROM INITIAL INPUT! */
 var playerChraracter = {
     name: "Tester",
-    health: 100,
-    maxHealth: 100,
-    attack: 10,
+    health: 10,
+    maxHealth: 10,
+    attack: 1,
     armor: 0,
     level: 0,
     takenDamage: 0,
@@ -52,7 +67,7 @@ var playerChraracter = {
     
     increaseStatistic: function(stringInput, value){
         switch(stringInput){
-            case `health`: this.health = this.health + value; this.maxHealth = this.health + value; break;
+            case `health`: this.health = this.health + value; this.maxHealth = this.maxHealth + value; break;
             case `attack`: this.attack = this.attack + value; break;
             case `armor`: this.armor = this.armor + value; break;
             default: console.log(`ERROR: player.js->increaseStatistic(${stringInput},${value})`); break;
@@ -78,12 +93,13 @@ var tier3Prefixes = [`Warchief`,`Captain`,`Pirate`,`Wizard`,`Smart`]
 var tier4Prefixes = [`Elder`,`Ancient`,`Centurion`,`King`,`Vengeful`]
 var tier5Prefixes = [`Unstoppable`,`Invincible`,`Godlike`,`Magnificent`,`Super-duper`]
 
-var healthMaxMins = [[3,10,25,55,80],[7,17,40,70,100]];
-var attackMaxMins = [[1,3,8,18,30],[3,7,13,26,50]];
+var healthMaxMins = [[3,10,25,55,80],[5,15,40,70,100]];
+var attackMaxMins = [[1,2,6,18,30],[2,4,12,26,50]];
 
-var healthDrops = [[2,10,20,35,51],[5,15,30,50,60]];
-var attackDrops = [[1,3,8,11,16],[3,7,10,15,20]];
-var armorDrops = [[1,1,3,7,10],[1,3,6,10,10]];
+var healthDrops = [[2,4,6,10,15],[5,7,14,20,30]];
+var attackDrops = [[1,3,8,11,16],[3,5,10,15,20]];
+var armorDrops = [[1,1,1,3,5],[1,2,3,5,8]];
+var typesDrops = ['health','attack','armor'];
 
 //Name is setted randomly
 // Tier 1 doesnt have prefix
@@ -147,7 +163,44 @@ var enemyModel = {
 }
 
 ////////////////////////////////////////////
-
+//Enemy Drop models
+var dropModel1 = {
+    typeString: String,
+    upgradeValue: String,
+    generateDrop: function(){
+        this.typeString = typesDrops[Math.floor(Math.random()*typesDrops.length)];
+        switch(this.typeString){
+            case 'health': this.upgradeValue = Math.floor(Math.random() * (healthDrops[1][tier-1] - healthDrops[0][tier-1])) + healthDrops[0][tier-1]; break;
+            case 'attack': this.upgradeValue = Math.floor(Math.random() * (attackDrops[1][tier-1] - attackDrops[0][tier-1])) + attackDrops[0][tier-1]; break;
+            case 'armor': this.upgradeValue = Math.floor(Math.random() * (armorDrops[1][tier-1] - armorDrops[0][tier-1])) + armorDrops[0][tier-1]; break;
+        }
+    }
+}
+var dropModel2 = {
+    typeString: String,
+    upgradeValue: String,
+    generateDrop: function(){
+        this.typeString = typesDrops[Math.floor(Math.random()*typesDrops.length)];
+        switch(this.typeString){
+            case 'health': this.upgradeValue = Math.floor(Math.random() * (healthDrops[1][tier-1] - healthDrops[0][tier-1])) + healthDrops[0][tier-1]; break;
+            case 'attack': this.upgradeValue = Math.floor(Math.random() * (attackDrops[1][tier-1] - attackDrops[0][tier-1])) + attackDrops[0][tier-1]; break;
+            case 'armor': this.upgradeValue = Math.floor(Math.random() * (armorDrops[1][tier-1] - armorDrops[0][tier-1])) + armorDrops[0][tier-1]; break;
+        }
+    }
+}
+var dropModel3 = {
+    typeString: String,
+    upgradeValue: String,
+    generateDrop: function(){
+        this.typeString = typesDrops[Math.floor(Math.random()*typesDrops.length)];
+        switch(this.typeString){
+            case 'health': this.upgradeValue = Math.floor(Math.random() * (healthDrops[1][tier-1] - healthDrops[0][tier-1])) + healthDrops[0][tier-1]; break;
+            case 'attack': this.upgradeValue = Math.floor(Math.random() * (attackDrops[1][tier-1] - attackDrops[0][tier-1])) + attackDrops[0][tier-1]; break;
+            case 'armor': this.upgradeValue = Math.floor(Math.random() * (armorDrops[1][tier-1] - armorDrops[0][tier-1])) + armorDrops[0][tier-1]; break;
+        }
+    }
+}
+var drops = [dropModel1,dropModel2,dropModel3];
 /* Game mechanics */
 var enemyDefendedPos;
 var enemyAttackPos;
@@ -230,7 +283,28 @@ atLegs.addEventListener('click', function(){
     switchToDefend();
 });
 
+//Adding listeners for drops
+drop1.addEventListener('click',function(){
+    playerChraracter.increaseStatistic(drops[0].typeString,drops[0].upgradeValue);
+    disableDrops();
+    newRound();
+});
+drop2.addEventListener('click',function(){
+    playerChraracter.increaseStatistic(drops[1].typeString,drops[1].upgradeValue);
+    disableDrops();
+    newRound();
+});
+
+drop3.addEventListener('click',function(){
+    playerChraracter.increaseStatistic(drops[2].typeString,drops[2].upgradeValue);
+    disableDrops();
+    newRound();
+});
+
+
+//Switchers for the activity buttons
 switchToDefend = function(){
+    disableDrops();
     atHead.disabled = true;
     atLegs.disabled = true;
     atTorso.disabled = true;
@@ -242,7 +316,7 @@ switchToDefend = function(){
 }
 
 switchToAttack = function(){
-  
+    disableDrops();
     atHead.disabled = false;
     atLegs.disabled = false;
     atTorso.disabled = false;
@@ -253,12 +327,14 @@ switchToAttack = function(){
     checkHealth();
 }
 
+
+
 checkHealth = function(){
     console.log(`Enemy's defence choise ${enemyDefendedPos}`);
     console.log(`Enemy's attack choice ${enemyAttackPos}`);
     if(enemyModel.health <= 0){
         console.log(`${enemyModel.name} has been defeated!`);
-        newRound();
+        enableDrops();
     }
     if(playerChraracter.health <= 0){
         console.log(`${playerChraracter.name} is (finally) down!`)
@@ -272,11 +348,36 @@ checkHealth = function(){
     }
 }
 
+disableDrops = function(){
+    drop1.hidden = true;
+    drop2.hidden = true;
+    drop3.hidden = true;
+}
+
+enableDrops = function(){
+    atHead.disabled = true;
+    atTorso.disabled = true;
+    atLegs.disabled = true;
+    defHead.disabled = true;
+    defLegs.disabled = true;
+    defTorso.disabled = true;
+    drop1.hidden = false;
+    drop2.hidden = false;
+    drop3.hidden = false;
+    drops.forEach(el => {
+        el.generateDrop();
+    });
+    drop1.textContent = `${drops[0].typeString}: ${drops[0].upgradeValue}`;
+    drop2.textContent = `${drops[1].typeString}: ${drops[1].upgradeValue}`;
+    drop3.textContent = `${drops[2].typeString}: ${drops[2].upgradeValue}`;
+}
+
+
 /* !Initializing the round! */
 newRound = function(){
     playerChraracter.level++;
     switch(playerChraracter.level){
-        case 5: tier = 2; break;
+        case 5: tier = 2; htmlEl.style.backgroundImage = `url('${bgArray[tier-1]}')`; break;
         case 15: tier = 3; break;
         case 30: tier = 4; break;
         case 50: tier = 5; break;
