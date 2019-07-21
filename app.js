@@ -21,7 +21,7 @@ db.once('open', () => console.log('Connected to Mongodb'));
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
-var gameRouter = require('./routes/controllers/gamestateController'); // Added
+//var gameRouter = require('./routes/controllers/gamestateController'); // Added
 
 var app = express();
 
@@ -34,6 +34,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/controllers', express.static(path.join(__dirname, "/routes/controllers")));
+app.use('/dist', express.static(path.join(__dirname, "/dist")));
 
 // Express session (provides client-side persistent authentication)
 app.use(
@@ -59,7 +61,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/users', usersRouter);
-app.use('/gameview',gameRouter);
+//app.use('/gameview',gameRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

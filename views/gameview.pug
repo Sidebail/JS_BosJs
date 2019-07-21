@@ -1,2 +1,50 @@
+head
+    title Defeat Enemies!
+    
 block content
-    h1= playerCharacter.name
+    h1#level
+    table
+        tr 
+            th
+                ul
+                    li
+                        p#pName
+                    li
+                        p#pHealth 
+                    li
+                        img(src="https://steamuserimages-a.akamaihd.net/ugc/914674699538224244/BDB1A145F93F4E68B2030243BC7D7A342D157053/", alt="placeholder")#pPicture
+                    li
+                        p#pAttack
+                    li
+                        p#pArmor            
+            td 
+                ul
+                    li
+                        button(class="btn btn-primary")#defHead Defend Head
+                    li
+                        button(class="btn btn-primary")#defTorso Defend Torso
+                    li
+                        button(class="btn btn-primary")#defLegs Defend Legs
+            td 
+                ul
+                    li
+                        button(class="btn btn-primary")#atHead Attack Head
+                    li
+                        button(class="btn btn-primary")#atTorso Attack Torso
+                    li
+                        button(class="btn btn-primary")#atLegs Attack Legs 
+            th
+                ul
+                    li
+                        h1#eName
+                    li
+                        p#eHealth
+                    li
+                        img(src="https://steamuserimages-a.akamaihd.net/ugc/914674699538224244/BDB1A145F93F4E68B2030243BC7D7A342D157053/", alt="placeholder")#ePicture
+                    li
+                        p#eAttack
+                    li
+                        p#eArmor
+    script(src='/dist/bundle.js')      
+
+    

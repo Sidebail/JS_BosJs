@@ -1,9 +1,13 @@
 const express = require('express');
-const router = express.Router();
-const Player = require('../../models/player');
-const EnemyModel = require('../../models/enemy');
+//const router = express.Router();
+//const Player = require('../../models/player');
+//const EnemyModel = require('../../models/enemy');
 
 /* THIS IS TEMPORARY */
+
+//Declaring the view components 
+//const pHealth = document.getElementById('pHealth');
+
 
 var playerChraracter = {
   name: "Tester",
@@ -40,13 +44,21 @@ var playerChraracter = {
   }
 }
 
+//pHealth.textContent = playerChraracter.name;
+
+updateScene = function(){
+
+}
+
 //////////////////////
+/*
 router.get('/',async(req,res)=>{
   res.render('gameview',{playerChraracter})
 });
-
+*/
 
 //SEND PLAYER DATA TO GAMEVIEW
+/*
 exports.createPlayer = async(req,res) => {
 
   
@@ -55,6 +67,7 @@ exports.createPlayer = async(req,res) => {
 
 
 module.exports = router;
+*/
 
 /*
 const Project = require('../../models/project');
