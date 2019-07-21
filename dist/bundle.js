@@ -22,9 +22,6 @@ const eAttack = document.getElementById('eAttack');
 const eArmor = document.getElementById('eArmor');
 const ePicture = document.getElementById('ePicture');
 var tier = 1;
-//Current phase
-var phases = ['atPhase','defPhase'];
-var currentPhase = phases[0];
 
 
 /* Creating the player object. THIS SHOULD BE GETTING THE NICKNAME FROM INITIAL INPUT! */
@@ -83,6 +80,10 @@ var tier5Prefixes = [`Unstoppable`,`Invincible`,`Godlike`,`Magnificent`,`Super-d
 
 var healthMaxMins = [[3,10,25,55,80],[7,17,40,70,100]];
 var attackMaxMins = [[1,3,8,18,30],[3,7,13,26,50]];
+
+var healthDrops = [[2,10,20,35,51],[5,15,30,50,60]];
+var attackDrops = [[1,3,8,11,16],[3,7,10,15,20]];
+var armorDrops = [[1,1,3,7,10],[1,3,6,10,10]];
 
 //Name is setted randomly
 // Tier 1 doesnt have prefix
