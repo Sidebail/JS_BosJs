@@ -29,7 +29,7 @@ var playerChraracter = {
     maxHealth: 10,
     attack: 1,
     armor: 0,
-    level: 1,
+    level: 0,
     takenDamage: 0,
     //pierce: Number,
     animIdle: String,
@@ -63,20 +63,20 @@ var playerChraracter = {
 }
 
 /* ENEMY LOGIC STARTS HERE */
-var enemyNames = [`Orc`, `Elf`, `Thief`, `Skeleton`, `Dragon`];
-var tier2Prefixes = [`Slick`, `Big`,`Old`,`Noob`,`Recruit`,`Half-dead`]
-var tier3Prefixes = [`Warchief`,`Captain`,`Pirate`,`Wizard`,`Smart`]
-var tier4Prefixes = [`Elder`,`Ancient`,`Centurion`,`King`,`Vengeful`]
-var tier5Prefixes = [`Unstoppable`,`Invincible`,`Godlike`,`Magnificent`,`Super-duper`]
+enemyNames = [`Orc`, `Elf`, `Thief`, `Skeleton`, `Dragon`]
+tier2Prefixes = [`Slick`, `Big`,`Old`,`Noob`,`Recruit`,`Half-dead`]
+tier3Prefixes = [`Warchief`,`Captain`,`Pirate`,`Wizard`,`Smart`]
+tier4Prefixes = [`Elder`,`Ancient`,`Centurion`,`King`,`Vengeful`]
+tier5Prefixes = [`Unstoppable`,`Invincible`,`Godlike`,`Magnificent`,`Super-duper`]
 
-var healthMaxMins = [3,10,25,55,80][7,17,40,70,100];
-var attackMaxMins = [1,3,8,18,30][3,7,13,26,50];
+healthMaxMins = [[3,10,25,55,80],[7,17,40,70,100]];
+attackMaxMins = [[1,3,8,18,30],[3,7,13,26,50]];
 
 //Name is setted randomly
 // Tier 1 doesnt have prefix
 // Tier 2 and higher has prefix to be assigned before name
 
-const enemyModel = {
+var enemyModel = {
     name: String,
     health: Number,
     maxHealth: Number,
@@ -88,47 +88,50 @@ const enemyModel = {
     animIdle: String,
     animAttack: String,
     animDefend: String,
+    
 
 
     makeName: function(){
         switch(tier){
-            case 1: name = enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
-            case 2: name = tier2Prefixes[Math.floor(Math.random()*tier2Prefixes.length)] + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
-            case 3: name = tier3Prefixes[Math.floor(Math.random()*tier3Prefixes.length)] + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
-            case 4: name = tier4Prefixes[Math.floor(Math.random()*tier4Prefixes.length)] + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
-            case 5: name = tier5Prefixes[Math.floor(Math.random()*tier5Prefixes.length)] + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
+            case 1: this.name = enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
+            case 2: this.name = tier2Prefixes[Math.floor(Math.random()*tier2Prefixes.length)] + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
+            case 3: this.name = tier3Prefixes[Math.floor(Math.random()*tier3Prefixes.length)] + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
+            case 4: this.name = tier4Prefixes[Math.floor(Math.random()*tier4Prefixes.length)] + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
+            case 5: this.name = tier5Prefixes[Math.floor(Math.random()*tier5Prefixes.length)] + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
         }
     },
 
     makeStats: function(){
-       health = Math.floor(Math.random() * (healthMaxMins[tier-1] - healthMaxMins[tier-1][tier-1])) + healthMaxMins[tier-1][tier-1];
-       maxHealth = Math.floor(Math.random() * (healthMaxMins[tier-1] - healthMaxMins[tier-1][tier-1])) + healthMaxMins[tier-1][tier-1];
-       attack = Math.floor(Math.random() * (attackMaxMins[tier-1] - attackMaxMins[tier-1][tier-1])) + attackMaxMins[tier-1][tier-1];
-
-       if(tier>2){
-           armor = Math.floor(Math.random() * ((tier + 5) - (tier - 3)) + (tier - 3));
+       this.health = Math.floor(Math.random() * (healthMaxMins[tier-1][1] - healthMaxMins[tier-1][0])) + healthMaxMins[tier-1][0];
+       this.maxHealth = this.health;
+       this.attack = Math.floor(Math.random() * (attackMaxMins[tier-1][1] - attackMaxMins[tier-1][0])) + attackMaxMins[tier-1][0];
+       //console.log(healthMaxMins[tier-1][0] + " " + healthMaxMins[tier-1][1]);
+       if(this.tier>2){
+           this.armor = Math.floor(Math.random() * ((tier + 5) - (tier - 3)) + (tier - 3));
+       }else{
+           this.armor = 0;
        }
        
     },
 
     recieveDamage: function(damage){
-        if(damage-armor > 0){
-            health = health - (damage-armor);
+        if(damage-this.armor > 0){
+            this.health = this.health - (damage-this.armor);
         }else{
             console.log(`Negative value damage - armor value`);
-            health = health - 1;
+            this.health = this.health - 1;
         }
     },
 
     createEnemy: function(tier, animIdle, animAttack, animDefend){
         this.tier = tier;
 
-        makeStats();
+        this.makeStats();
        
         this.animIdle = animIdle;
         this.animAttack = animAttack;
         this.animDefend = animDefend;
-        makeName();
+        this.makeName();
 
     }
 }
@@ -137,6 +140,7 @@ const enemyModel = {
 
 /* !Initializing the round! */
 newRound = function(){
+    playerChraracter++;
     switch(playerChraracter.level){
         case 5: tier = 2; break;
         case 15: tier = 3; break;
@@ -152,6 +156,7 @@ newRound = function(){
 
 /* !!!Function that updates the scene with values!!! */
 updateScene = function(){
+  console.log('UPDATING SCENE!');
   levelCounter.textContent = `Level ${playerChraracter.level}`;
   pName.textContent = playerChraracter.name;
   pHealth.textContent = `Health: ${playerChraracter.health}/${playerChraracter}`
@@ -160,6 +165,8 @@ updateScene = function(){
 
   eName.textContent = enemyModel.name;
   eHealth.textContent = `Health: ${enemyModel.health}/${enemyModel.maxHealth}`
-  eAttack.textContent = `Attack: ${playerChraracter.attack}`;
-  eArmor.textContent = `Armor: ${playerChraracter.armor}`;
+  eAttack.textContent = `Attack: ${enemyModel.attack}`;
+  eArmor.textContent = `Armor: ${enemyModel.armor}`;
 }
+
+newRound();
