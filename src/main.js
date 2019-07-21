@@ -411,3 +411,5 @@ updateScene = function(){
   eArmor.textContent = `Armor: ${enemyModel.armor}`;
   ePicture.src = enemyModel.animIdle;
 }
+
+newRound();

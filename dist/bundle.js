@@ -384,9 +384,9 @@ newRound = function(){
     playerChraracter.level++;
     switch(playerChraracter.level){
         case 5: tier = 2; htmlEl.style.backgroundImage = `url('${bgArray[tier-1]}')`; break;
-        case 15: tier = 3; break;
-        case 30: tier = 4; break;
-        case 50: tier = 5; break;
+        case 15: tier = 3; htmlEl.style.backgroundImage = `url('${bgArray[tier-1]}')`; break;
+        case 30: tier = 4; htmlEl.style.backgroundImage = `url('${bgArray[tier-1]}')`; break;
+        case 50: tier = 5; htmlEl.style.backgroundImage = `url('${bgArray[tier-1]}')`; break;
     }
     enemyModel.createEnemy(tier);
     switchToAttack();
