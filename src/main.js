@@ -21,13 +21,17 @@ const eAttack = document.getElementById('eAttack');
 const eArmor = document.getElementById('eArmor');
 const ePicture = document.getElementById('ePicture');
 var tier = 1;
+//Current phase
+var phases = ['atPhase','defPhase'];
+var currentPhase = phases[0];
+
 
 /* Creating the player object. THIS SHOULD BE GETTING THE NICKNAME FROM INITIAL INPUT! */
 var playerChraracter = {
     name: "Tester",
-    health: 10,
-    maxHealth: 10,
-    attack: 1,
+    health: 100,
+    maxHealth: 100,
+    attack: 10,
     armor: 0,
     level: 0,
     takenDamage: 0,
@@ -38,39 +42,46 @@ var playerChraracter = {
     //inventory: Item[3] -- NEEDS REVISE!
   
     recieveDamage: function(damage){
-        if(damage-armor > 0){
-            health = health - (damage-armor);
-            takenDamage = takenDamage + damage;
+        if(damage-this.armor > 0){
+            this.health = this.health - (damage-this.armor);
+            this.takenDamage = this.takenDamage + damage;
         }else{
             console.log(`Negative value damage - armor value`);
-            health = health - 1;
-            takenDamage = takenDamage + 1;
+            this.health = this.health - 1;
+            this.takenDamage = this.takenDamage + 1;
         }
     },
     
     increaseStatistic: function(stringInput, value){
         switch(stringInput){
-            case `health`: health = health + value; maxHealth = health + value; break;
-            case `attack`: attack = attack + value; break;
-            case `armor`: armor = armor + value; break;
+            case `health`: this.health = this.health + value; this.maxHealth = this.health + value; break;
+            case `attack`: this.attack = this.attack + value; break;
+            case `armor`: this.armor = this.armor + value; break;
             default: console.log(`ERROR: player.js->increaseStatistic(${stringInput},${value})`); break;
         }
     },
     
     increaseLevel: function(){
-        level++;
+        this.level++;
     }
 }
 
 /* ENEMY LOGIC STARTS HERE */
-enemyNames = [`Orc`, `Elf`, `Thief`, `Skeleton`, `Dragon`]
-tier2Prefixes = [`Slick`, `Big`,`Old`,`Noob`,`Recruit`,`Half-dead`]
-tier3Prefixes = [`Warchief`,`Captain`,`Pirate`,`Wizard`,`Smart`]
-tier4Prefixes = [`Elder`,`Ancient`,`Centurion`,`King`,`Vengeful`]
-tier5Prefixes = [`Unstoppable`,`Invincible`,`Godlike`,`Magnificent`,`Super-duper`]
+var enemyNames = [`Orc`, `Elf`, `Thief`, `Skeleton`, `Dragon`]
+var enemyAnimsIdle = [
+    /* Orc */`/images/orc.gif`,
+    /* Elf */`/images/elf.gif`,
+    /* Thief */`/images/thief.gif`,
+    /* Skeleton */`/images/skeleton.gif`,
+    /* Dragon */`/images/dragon.gif`
+]
+var tier2Prefixes = [`Slick`, `Big`,`Old`,`Noob`,`Recruit`,`Half-dead`]
+var tier3Prefixes = [`Warchief`,`Captain`,`Pirate`,`Wizard`,`Smart`]
+var tier4Prefixes = [`Elder`,`Ancient`,`Centurion`,`King`,`Vengeful`]
+var tier5Prefixes = [`Unstoppable`,`Invincible`,`Godlike`,`Magnificent`,`Super-duper`]
 
-healthMaxMins = [[3,10,25,55,80],[7,17,40,70,100]];
-attackMaxMins = [[1,3,8,18,30],[3,7,13,26,50]];
+var healthMaxMins = [[3,10,25,55,80],[7,17,40,70,100]];
+var attackMaxMins = [[1,3,8,18,30],[3,7,13,26,50]];
 
 //Name is setted randomly
 // Tier 1 doesnt have prefix
@@ -92,19 +103,20 @@ var enemyModel = {
 
 
     makeName: function(){
+        var randomNumber = Math.floor(Math.random()*enemyNames.length);
         switch(tier){
-            case 1: this.name = enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
-            case 2: this.name = tier2Prefixes[Math.floor(Math.random()*tier2Prefixes.length)] + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
-            case 3: this.name = tier3Prefixes[Math.floor(Math.random()*tier3Prefixes.length)] + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
-            case 4: this.name = tier4Prefixes[Math.floor(Math.random()*tier4Prefixes.length)] + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
-            case 5: this.name = tier5Prefixes[Math.floor(Math.random()*tier5Prefixes.length)] + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
+            case 1: this.name = enemyNames[randomNumber]; this.animIdle = enemyAnimsIdle[randomNumber]; break;
+            case 2: this.name = tier2Prefixes[Math.floor(Math.random()*tier2Prefixes.length)] + " " + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
+            case 3: this.name = tier3Prefixes[Math.floor(Math.random()*tier3Prefixes.length)] + " " + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
+            case 4: this.name = tier4Prefixes[Math.floor(Math.random()*tier4Prefixes.length)] + " " + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
+            case 5: this.name = tier5Prefixes[Math.floor(Math.random()*tier5Prefixes.length)] + " " + enemyNames[Math.floor(Math.random()*enemyNames.length)]; break;
         }
     },
 
     makeStats: function(){
-       this.health = Math.floor(Math.random() * (healthMaxMins[tier-1][1] - healthMaxMins[tier-1][0])) + healthMaxMins[tier-1][0];
+       this.health = Math.floor(Math.random() * (healthMaxMins[1][tier-1] - healthMaxMins[0][tier-1])) + healthMaxMins[0][tier-1];
        this.maxHealth = this.health;
-       this.attack = Math.floor(Math.random() * (attackMaxMins[tier-1][1] - attackMaxMins[tier-1][0])) + attackMaxMins[tier-1][0];
+       this.attack = Math.floor(Math.random() * (attackMaxMins[1][tier-1] - attackMaxMins[0][tier-1])) + attackMaxMins[0][tier-1];
        //console.log(healthMaxMins[tier-1][0] + " " + healthMaxMins[tier-1][1]);
        if(this.tier>2){
            this.armor = Math.floor(Math.random() * ((tier + 5) - (tier - 3)) + (tier - 3));
@@ -138,9 +150,133 @@ var enemyModel = {
 
 ////////////////////////////////////////////
 
+/* Game mechanics */
+var enemyDefendedPos;
+var enemyAttackPos;
+var positions = ["head","torso","legs"];
+enemyDefend = function(){
+//var item = items[Math.floor(Math.random()*items.length)];
+    enemyDefendedPos = positions[Math.floor(Math.random()*positions.length)];
+}
+enemyAttack = function(){
+    enemyAttackPos = positions[Math.floor(Math.random()*positions.length)];
+}
+
+//Adding listeners with functions!
+//Defenders
+defHead.addEventListener('click', function(){
+    enemyAttack();
+    if(enemyAttackPos != "head"){
+        playerChraracter.recieveDamage(enemyModel.attack);
+        console.log(`${enemyModel.name} attacks ${playerChraracter.name}'s head and deals ${enemyModel.attack} damage! Ouch!`);
+        updateScene();
+    }else{
+        console.log(`${enemyModel.name} attacks ${playerChraracter.name}'s head but ${playerChraracter.name} blocks it! Not today!`);
+    }
+    switchToAttack();
+});
+defTorso.addEventListener('click', function(){
+    enemyAttack();
+    if(enemyAttackPos != "torso"){
+        playerChraracter.recieveDamage(enemyModel.attack);
+        console.log(`${enemyModel.name} attacks ${playerChraracter.name}'s torso and deals ${enemyModel.attack} damage! Ouch!`);
+        updateScene();
+    }else{
+        console.log(`${enemyModel.name} attacks ${playerChraracter.name}'s torso but ${playerChraracter.name} blocks it! Not today!`);
+    }
+    switchToAttack();
+});
+defLegs.addEventListener('click', function(){
+    enemyAttack();
+    if(enemyAttackPos != "legs"){
+        playerChraracter.recieveDamage(enemyModel.attack);
+        console.log(`${enemyModel.name} attacks ${playerChraracter.name}'s legs and deals ${enemyModel.attack} damage! Ouch!`);
+        updateScene();
+    }else{
+        console.log(`${enemyModel.name} attacks ${playerChraracter.name}'s legs but ${playerChraracter.name} blocks it! Not today!`);
+    }
+    switchToAttack();
+});
+//Attackers
+atHead.addEventListener('click', function(){
+    enemyDefend();
+    if(enemyDefendedPos != "head"){
+        enemyModel.recieveDamage(playerChraracter.attack);
+        console.log(`${playerChraracter.name} attacks ${enemyModel.name}'s head and deals ${playerChraracter.attack} damage! Get it!`);
+        updateScene();
+    }else{
+        console.log(`${playerChraracter.name} attacks ${enemyModel.name}'s head but ${enemyModel.name} blocks it! Mission failed, we'll get them next time!`);
+    }
+    switchToDefend();
+});
+atTorso.addEventListener('click', function(){
+    enemyDefend();
+    if(enemyDefendedPos != "torso"){
+        enemyModel.recieveDamage(playerChraracter.attack);
+        console.log(`${playerChraracter.name} attacks ${enemyModel.name}'s torso and deals ${playerChraracter.attack} damage! Get it!`);
+        updateScene();
+    }else{
+        console.log(`${playerChraracter.name} attacks ${enemyModel.name}'s torso but ${enemyModel.name} blocks it! Mission failed, we'll get them next time!`);
+    }
+    switchToDefend();
+});
+atLegs.addEventListener('click', function(){
+    enemyDefend();
+    if(enemyDefendedPos != "legs"){
+        enemyModel.recieveDamage(playerChraracter.attack);
+        console.log(`${playerChraracter.name} attacks ${enemyModel.name}'s legs and deals ${playerChraracter.attack} damage! Get it!`);
+        updateScene();
+    }else{
+        console.log(`${playerChraracter.name} attacks ${enemyModel.name}'s legs but ${enemyModel.name} blocks it! Mission failed, we'll get them next time!`);
+    }
+    switchToDefend();
+});
+
+switchToDefend = function(){
+    atHead.disabled = true;
+    atLegs.disabled = true;
+    atTorso.disabled = true;
+    defHead.disabled = false;
+    defLegs.disabled = false;
+    defTorso.disabled = false;
+    console.log('Time to defend! Choose one of the positions!');
+    checkHealth();
+}
+
+switchToAttack = function(){
+  
+    atHead.disabled = false;
+    atLegs.disabled = false;
+    atTorso.disabled = false;
+    defHead.disabled = true;
+    defLegs.disabled = true;
+    defTorso.disabled = true;
+    console.log('Time to attack!!! Choose one of the positions!');
+    checkHealth();
+}
+
+checkHealth = function(){
+    console.log(`Enemy's defence choise ${enemyDefendedPos}`);
+    console.log(`Enemy's attack choice ${enemyAttackPos}`);
+    if(enemyModel.health <= 0){
+        console.log(`${enemyModel.name} has been defeated!`);
+        newRound();
+    }
+    if(playerChraracter.health <= 0){
+        console.log(`${playerChraracter.name} is (finally) down!`)
+        atHead.disabled = true;
+        atTorso.disabled = true;
+        atLegs.disabled = true;
+        defHead.disabled = true;
+        defLegs.disabled = true;
+        defTorso.disabled = true;
+        window.location.href = "./views/leaderboard";
+    }
+}
+
 /* !Initializing the round! */
 newRound = function(){
-    playerChraracter++;
+    playerChraracter.level++;
     switch(playerChraracter.level){
         case 5: tier = 2; break;
         case 15: tier = 3; break;
@@ -148,7 +284,9 @@ newRound = function(){
         case 50: tier = 5; break;
     }
     enemyModel.createEnemy(tier,"TEMP","TEMP");
+    switchToAttack();
     playerChraracter.health = Math.floor(playerChraracter.health + playerChraracter.takenDamage/2);
+    playerChraracter.takenDamage = 0;
     updateScene();
 }
 
@@ -159,7 +297,7 @@ updateScene = function(){
   console.log('UPDATING SCENE!');
   levelCounter.textContent = `Level ${playerChraracter.level}`;
   pName.textContent = playerChraracter.name;
-  pHealth.textContent = `Health: ${playerChraracter.health}/${playerChraracter}`
+  pHealth.textContent = `Health: ${playerChraracter.health}/${playerChraracter.maxHealth}`
   pAttack.textContent = `Attack: ${playerChraracter.attack}`;
   pArmor.textContent = `Armor: ${playerChraracter.armor}`;
 
