@@ -52,6 +52,8 @@ var playerChraracter = {
     animIdle: String,
     animAttack: String,
     animDefend: String,
+
+    defeatedEnemies: [],
     //inventory: Item[3] -- NEEDS REVISE!
   
     recieveDamage: function(damage){
@@ -332,10 +334,14 @@ switchToAttack = function(){
 checkHealth = function(){
     console.log(`Enemy's defence choise ${enemyDefendedPos}`);
     console.log(`Enemy's attack choice ${enemyAttackPos}`);
+    //Enemy's death
     if(enemyModel.health <= 0){
         console.log(`${enemyModel.name} has been defeated!`);
+        playerChraracter.defeatedEnemies.push(Object.assign({},enemyModel));
+        console.log(playerChraracter.defeatedEnemies);
         enableDrops();
     }
+    //Player's death
     if(playerChraracter.health <= 0){
         console.log(`${playerChraracter.name} is (finally) down!`)
         atHead.disabled = true;
