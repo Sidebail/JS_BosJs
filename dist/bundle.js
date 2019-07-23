@@ -360,8 +360,8 @@ increaseScore = function(score)
 }
 
 checkHealth = function(){
-    updateGameText(`Enemy's defence choise ${enemyDefendedPos}`);
-    updateGameText(`Enemy's attack choice ${enemyAttackPos}`);
+    //updateGameText(`Enemy's defence choise ${enemyDefendedPos}`);
+    //updateGameText(`Enemy's attack choice ${enemyAttackPos}`);
     //Enemy's death
     if(enemyModel.health <= 0){
         updateGameText(`${enemyModel.name} has been defeated!`);
