@@ -56,13 +56,45 @@ app.use((req, res, next) => {
 
 passport.use(new LocalStrategy(User.authenticate()));
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+
+//GITHUB AUTHENTICATION
+
+passport.use(
+  new GithubStrategy(
+    {
+      clientID: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      callbackURL: process.env.GITHUB_CALLBACK_URL
+    },
+    function(accessToken, refreshToken, profile, cb) {
+      User.findOne({ githubId: profile.id }, function(err, user) {
+        if (!err && !user) {
+          const newgithub = new User(profile);
+          newgithub.save();
+          return cb(null, newgithub);
+        } else {
+          return cb(err, user);
+        }
+      });
+    }
+  )
+);
+
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+
+//passport.serializeUser(User.serializeUser());
+//passport.deserializeUser(User.deserializeUser());
 
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/users', usersRouter);
 //app.use('/gameview',gameRouter);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
