@@ -59337,7 +59337,7 @@ const express = require('express');
 //const pHealth = document.getElementById('pHealth');
 
 
-var playerChraracter = {
+var playerCharacter = {
   name: "Tester",
   health: 10,
   attack: 1,
@@ -59372,7 +59372,7 @@ var playerChraracter = {
   }
 }
 
-//pHealth.textContent = playerChraracter.name;
+//pHealth.textContent = playerCharacter.name;
 
 updateScene = function(){
 
@@ -59381,7 +59381,7 @@ updateScene = function(){
 //////////////////////
 /*
 router.get('/',async(req,res)=>{
-  res.render('gameview',{playerChraracter})
+  res.render('gameview',{playerCharacter})
 });
 */
 
