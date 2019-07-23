@@ -40,11 +40,6 @@ const bgArray = [
     /* Tier 5 - Hell */ `https://img.wallpapersafari.com/desktop/1920/1080/84/74/8Y2GRE.jpg`
 ]
 
-//Clears the text area on page load
-document.onload = function()
-{
-    document.getElementById('gameText').value = "";
-}
 /* Creating the player object. THIS SHOULD BE GETTING THE NICKNAME FROM INITIAL INPUT! */
 var playerChraracter = {
     name: "Tester",
@@ -68,7 +63,7 @@ var playerChraracter = {
             this.health = this.health - (damage-this.armor);
             this.takenDamage = this.takenDamage + damage;
         }else{
-            console.log(`Negative value damage - armor value`);
+            updateGameText(`Negative value damage - armor value`);
             this.health = this.health - 1;
             this.takenDamage = this.takenDamage + 1;
         }
@@ -157,7 +152,7 @@ var enemyModel = {
         if(damage-this.armor > 0){
             this.health = this.health - (damage-this.armor);
         }else{
-            console.log(`Negative value damage - armor value`);
+            updateGameText(`Negative value damage - armor value`);
             this.health = this.health - 1;
         }
     },
@@ -228,7 +223,7 @@ defHead.addEventListener('click', function(){
     enemyAttack();
     if(enemyAttackPos != "head"){
         playerChraracter.recieveDamage(enemyModel.attack);
-        console.log(`${enemyModel.name} attacks ${playerChraracter.name}'s head and deals ${enemyModel.attack} damage! Ouch!`);
+        updateGameText(`${enemyModel.name} attacks ${playerChraracter.name}'s head and deals ${enemyModel.attack} damage! Ouch!`);
         updateScene();
     }else{
         console.log(`${enemyModel.name} attacks ${playerChraracter.name}'s head but ${playerChraracter.name} blocks it! Not today!`);
@@ -239,10 +234,10 @@ defTorso.addEventListener('click', function(){
     enemyAttack();
     if(enemyAttackPos != "torso"){
         playerChraracter.recieveDamage(enemyModel.attack);
-        console.log(`${enemyModel.name} attacks ${playerChraracter.name}'s torso and deals ${enemyModel.attack} damage! Ouch!`);
+        updateGameText(`${enemyModel.name} attacks ${playerChraracter.name}'s torso and deals ${enemyModel.attack} damage! Ouch!`);
         updateScene();
     }else{
-        console.log(`${enemyModel.name} attacks ${playerChraracter.name}'s torso but ${playerChraracter.name} blocks it! Not today!`);
+        updateGameText(`${enemyModel.name} attacks ${playerChraracter.name}'s torso but ${playerChraracter.name} blocks it! Not today!`);
     }
     switchToAttack();
 });
@@ -250,10 +245,10 @@ defLegs.addEventListener('click', function(){
     enemyAttack();
     if(enemyAttackPos != "legs"){
         playerChraracter.recieveDamage(enemyModel.attack);
-        console.log(`${enemyModel.name} attacks ${playerChraracter.name}'s legs and deals ${enemyModel.attack} damage! Ouch!`);
+        updateGameText(`${enemyModel.name} attacks ${playerChraracter.name}'s legs and deals ${enemyModel.attack} damage! Ouch!`);
         updateScene();
     }else{
-        console.log(`${enemyModel.name} attacks ${playerChraracter.name}'s legs but ${playerChraracter.name} blocks it! Not today!`);
+        updateGameText(`${enemyModel.name} attacks ${playerChraracter.name}'s legs but ${playerChraracter.name} blocks it! Not today!`);
     }
     switchToAttack();
 });
@@ -262,10 +257,10 @@ atHead.addEventListener('click', function(){
     enemyDefend();
     if(enemyDefendedPos != "head"){
         enemyModel.recieveDamage(playerChraracter.attack);
-        console.log(`${playerChraracter.name} attacks ${enemyModel.name}'s head and deals ${playerChraracter.attack} damage! Get it!`);
+        updateGameText(`${playerChraracter.name} attacks ${enemyModel.name}'s head and deals ${playerChraracter.attack} damage! Get it!`);
         updateScene();
     }else{
-        console.log(`${playerChraracter.name} attacks ${enemyModel.name}'s head but ${enemyModel.name} blocks it! Mission failed, we'll get them next time!`);
+       updateGameText(`${playerChraracter.name} attacks ${enemyModel.name}'s head but ${enemyModel.name} blocks it! Mission failed, we'll get them next time!`);
     }
     switchToDefend();
 });
@@ -273,10 +268,10 @@ atTorso.addEventListener('click', function(){
     enemyDefend();
     if(enemyDefendedPos != "torso"){
         enemyModel.recieveDamage(playerChraracter.attack);
-        console.log(`${playerChraracter.name} attacks ${enemyModel.name}'s torso and deals ${playerChraracter.attack} damage! Get it!`);
+        updateGameText(`${playerChraracter.name} attacks ${enemyModel.name}'s torso and deals ${playerChraracter.attack} damage! Get it!`);
         updateScene();
     }else{
-        console.log(`${playerChraracter.name} attacks ${enemyModel.name}'s torso but ${enemyModel.name} blocks it! Mission failed, we'll get them next time!`);
+        updateGameText(`${playerChraracter.name} attacks ${enemyModel.name}'s torso but ${enemyModel.name} blocks it! Mission failed, we'll get them next time!`);
     }
     switchToDefend();
 });
@@ -284,10 +279,10 @@ atLegs.addEventListener('click', function(){
     enemyDefend();
     if(enemyDefendedPos != "legs"){
         enemyModel.recieveDamage(playerChraracter.attack);
-        console.log(`${playerChraracter.name} attacks ${enemyModel.name}'s legs and deals ${playerChraracter.attack} damage! Get it!`);
+        updateGameText(`${playerChraracter.name} attacks ${enemyModel.name}'s legs and deals ${playerChraracter.attack} damage! Get it!`);
         updateScene();
     }else{
-        console.log(`${playerChraracter.name} attacks ${enemyModel.name}'s legs but ${enemyModel.name} blocks it! Mission failed, we'll get them next time!`);
+        updateGameText(`${playerChraracter.name} attacks ${enemyModel.name}'s legs but ${enemyModel.name} blocks it! Mission failed, we'll get them next time!`);
     }
     switchToDefend();
 });
@@ -359,16 +354,16 @@ checkHealth = function(){
     updateGameText(`Enemy's attack choice ${enemyAttackPos}`);
     //Enemy's death
     if(enemyModel.health <= 0){
-        console.log(`${enemyModel.name} has been defeated!`);
+        updateGameText(`${enemyModel.name} has been defeated!`);
         playerChraracter.defeatedEnemies.push(Object.assign({},enemyModel));
-        console.log(playerChraracter.defeatedEnemies);
+        updateGameText(playerChraracter.defeatedEnemies);
         increaseScore(playerChraracter.score);
         enableDrops();
 
     }
     //Player's death
     if(playerChraracter.health <= 0){
-        console.log(`${playerChraracter.name} is (finally) down!`)
+        updateGameText(`${playerChraracter.name} is (finally) down!`)
         atHead.disabled = true;
         atTorso.disabled = true;
         atLegs.disabled = true;
