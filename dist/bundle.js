@@ -1,6 +1,8 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 //Declaring the elements
 const levelCounter = document.getElementById('level');
+const scoreCounter = document.getElementById('score');
+const gameEvents = document.getElementById('gameText');
 //Player Elements
 const pName = document.getElementById('pName');
 const pHealth = document.getElementById('pHealth');
@@ -38,7 +40,11 @@ const bgArray = [
     /* Tier 5 - Hell */ `https://img.wallpapersafari.com/desktop/1920/1080/84/74/8Y2GRE.jpg`
 ]
 
-
+//Clears the text area on page load
+document.onload = function()
+{
+    document.getElementById('gameText').value = "";
+}
 /* Creating the player object. THIS SHOULD BE GETTING THE NICKNAME FROM INITIAL INPUT! */
 var playerChraracter = {
     name: "Tester",
@@ -47,7 +53,8 @@ var playerChraracter = {
     attack: 1,
     armor: 0,
     level: 0,
-    takenDamage: 0,
+    takenDamage: 0, 
+    score: 0,
     //pierce: Number,
     animIdle: String,
     animAttack: String,
@@ -303,7 +310,12 @@ drop3.addEventListener('click',function(){
     newRound();
 });
 
-
+//Function to call updating the text area
+updateGameText = function (newText)
+{
+    document.getElementById('gameText').value += newText;
+    document.getElementById('gameText').value += "\r"; 
+}
 //Switchers for the activity buttons
 switchToDefend = function(){
     disableDrops();
@@ -313,7 +325,7 @@ switchToDefend = function(){
     defHead.disabled = false;
     defLegs.disabled = false;
     defTorso.disabled = false;
-    console.log('Time to defend! Choose one of the positions!');
+    updateGameText('Time to defend! Choose one of the positions!');
     checkHealth();
 }
 
@@ -325,21 +337,34 @@ switchToAttack = function(){
     defHead.disabled = true;
     defLegs.disabled = true;
     defTorso.disabled = true;
-    console.log('Time to attack!!! Choose one of the positions!');
+    updateGameText('Time to attack!!! Choose one of the positions!');
     checkHealth();
 }
 
+increaseScore = function(score)
+{
+    switch(enemyModel.tier){
+        case 1: tier = 1; playerChraracter.score += 1000;  break;
+        case 2: tier = 2; playerChraracter.score += 2000;  break;
+        case 3: tier = 3; playerChraracter.score += 3000;  break;
+        case 4: tier = 4; playerChraracter.score += 4000;  break;
+        case 5: tier = 5; playerChraracter.score += 5000;  break;
 
+    } 
+
+}
 
 checkHealth = function(){
-    console.log(`Enemy's defence choise ${enemyDefendedPos}`);
-    console.log(`Enemy's attack choice ${enemyAttackPos}`);
+    updateGameText(`Enemy's defence choise ${enemyDefendedPos}`);
+    updateGameText(`Enemy's attack choice ${enemyAttackPos}`);
     //Enemy's death
     if(enemyModel.health <= 0){
         console.log(`${enemyModel.name} has been defeated!`);
         playerChraracter.defeatedEnemies.push(Object.assign({},enemyModel));
         console.log(playerChraracter.defeatedEnemies);
+        increaseScore(playerChraracter.score);
         enableDrops();
+
     }
     //Player's death
     if(playerChraracter.health <= 0){
@@ -350,7 +375,7 @@ checkHealth = function(){
         defHead.disabled = true;
         defLegs.disabled = true;
         defTorso.disabled = true;
-        window.location.href = "./views/leaderboard";
+        window.location.href = "/gameover";
     }
 }
 
@@ -401,6 +426,7 @@ newRound = function(){
 updateScene = function(){
   console.log('UPDATING SCENE!');
   levelCounter.textContent = `Level ${playerChraracter.level}`;
+  scoreCounter.textContent = `Score: ${playerChraracter.score}`;
   pName.textContent = playerChraracter.name;
   pHealth.textContent = `Health: ${playerChraracter.health}/${playerChraracter.maxHealth}`
   pAttack.textContent = `Attack: ${playerChraracter.attack}`;

@@ -1,5 +1,6 @@
 //Declaring the elements
 const levelCounter = document.getElementById('level');
+const scoreCounter = document.getElementById('score');
 //Player Elements
 const pName = document.getElementById('pName');
 const pHealth = document.getElementById('pHealth');
@@ -47,6 +48,7 @@ var playerChraracter = {
     armor: 0,
     level: 0,
     takenDamage: 0,
+    score: 0,
     //pierce: Number,
     animIdle: String,
     animAttack: String,
@@ -77,6 +79,9 @@ var playerChraracter = {
     
     increaseLevel: function(){
         this.level++;
+    }
+    increaseScore: function(score){
+        this.score = score++;
     }
 }
 
@@ -381,6 +386,7 @@ enableDrops = function(){
 /* !Initializing the round! */
 newRound = function(){
     playerChraracter.level++;
+    playerChraracter.score++;
     switch(playerChraracter.level){
         case 5: tier = 2; htmlEl.style.backgroundImage = `url('${bgArray[tier-1]}')`; break;
         case 15: tier = 3; htmlEl.style.backgroundImage = `url('${bgArray[tier-1]}')`; break;
@@ -400,6 +406,7 @@ newRound = function(){
 updateScene = function(){
   console.log('UPDATING SCENE!');
   levelCounter.textContent = `Level ${playerChraracter.level}`;
+  scoreCounter.textContent = `Score: ${playerChraracter.score}`;
   pName.textContent = playerChraracter.name;
   pHealth.textContent = `Health: ${playerChraracter.health}/${playerChraracter.maxHealth}`
   pAttack.textContent = `Attack: ${playerChraracter.attack}`;
