@@ -23,7 +23,7 @@ head
         }
 body#content
     h1#level(style="background-color: white;")
-    h3#score(style="background-color: white;") 
+    h3#score(style="background-color: white;" ) 
     table
         tr 
             th
@@ -74,8 +74,11 @@ body#content
                         button(class="btn btn-primary",hidden='hidden')#drop2
                     li
                         button(class="btn btn-primary", hidden='hidden')#drop3 
-
+    button(class="btn btn-primary")#die Die lol
     textarea#gameText(readonly='', rows='10', cols='75')
+    form(type="hidden" method="post")
+     input(type="hidden" name="score" id="scoreform")
+     input(type="submit" style="display:none" id="submitScore")
 script(src='/dist/bundle.js')      
 
     
