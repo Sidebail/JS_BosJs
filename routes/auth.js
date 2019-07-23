@@ -16,6 +16,18 @@ router.post(
   })
 );
 
+
+router.get(`/auth/github`, passport.authenticate('github'));
+
+router.get(
+  `/auth/github/callback`,
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  }
+);
+
 // 3 - Render Register Form
 router.get("/register", (req, res) =>
   res.render("login", { buttonText: "Register" })
