@@ -86,7 +86,7 @@ passport.serializeUser((user, done) => {
 
 
 //passport.serializeUser(User.serializeUser());
-//passport.deserializeUser(User.deserializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use('/', indexRouter);
 app.use('/', authRouter);
