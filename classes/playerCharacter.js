@@ -37,3 +37,5 @@ class playerCharacter {
       level++;
   }
 }
+
+module.exports = playerCharacter;
