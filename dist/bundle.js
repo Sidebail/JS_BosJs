@@ -27,6 +27,13 @@ const ePicture = document.getElementById('ePicture');
 const drop1 = document.getElementById('drop1');
 const drop2 = document.getElementById('drop2');
 const drop3 = document.getElementById('drop3');
+// player score
+const scoreForm = document.getElementById('scoreform');
+const submitScore = document.getElementById('submitScore');
+
+// DELETE FOR PROD
+const die = document.getElementById('die');
+
 var tier = 1;
 //Html element
 const htmlEl = document.getElementById('content');
@@ -217,6 +224,9 @@ enemyAttack = function(){
     enemyAttackPos = positions[Math.floor(Math.random()*positions.length)];
 }
 
+die.addEventListener('click' , function(){
+    playerChraracter.recieveDamage(playerChraracter.health);
+});
 //Adding listeners with functions!
 //Defenders
 defHead.addEventListener('click', function(){
@@ -370,7 +380,12 @@ checkHealth = function(){
         defHead.disabled = true;
         defLegs.disabled = true;
         defTorso.disabled = true;
+        // send score back to index.js with hidden form
+        console.log("before submit");
+        submitScore.click();
+        console.log("after submit");
         window.location.href = "/gameover";
+       //window.open("/gameover", score=`${playerChraracter.score}`);
     }
 }
 
@@ -432,6 +447,8 @@ updateScene = function(){
   eAttack.textContent = `Attack: ${enemyModel.attack}`;
   eArmor.textContent = `Armor: ${enemyModel.armor}`;
   ePicture.src = enemyModel.animIdle;
+
+  scoreForm.value = playerChraracter.score;
 }
 
 newRound();
