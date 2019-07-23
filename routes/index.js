@@ -24,7 +24,7 @@ router.post('/gameview', function(req, res){
 });
 
 router.get('/gameover', function(req,res,next){
-  res.render('gameover', {title: 'Game Over', score: finalscore});
+  res.render('gameover', {title: 'Game Over'}, finalscore);
 });
 
 module.exports = router;
