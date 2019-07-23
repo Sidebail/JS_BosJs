@@ -42,7 +42,7 @@ const bgArray = [
 
 /* Creating the player object. THIS SHOULD BE GETTING THE NICKNAME FROM INITIAL INPUT! */
 var playerChraracter = {
-    name: "Tester",
+    name: (pName.textContent == "") ? "Tester" : pName.textContent,
     health: 10,
     maxHealth: 10,
     attack: 1,

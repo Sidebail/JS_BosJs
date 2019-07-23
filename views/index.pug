@@ -4,5 +4,7 @@ block content
   h1= title
   p Welcome to #{title}
   p Input yout nickname:
-  input(type="text" name="nickname")
-  a(href="/gameview" class="btn btn-primary") Play Game
+  // turn into form with post method
+  form(method="post")
+    input(type="text" name="nickname")
+    button(class="btn btn-primary") Play Game
