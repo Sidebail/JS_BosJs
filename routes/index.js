@@ -7,7 +7,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/gameview', function(req,res,next){
-  res.render('gameview');
+  res.render('gameview', { title: 'Defeat Enemies!' });
+});
+
+router.get('/gameover', function(req,res,next){
+  res.render('gameover', {title: 'Game Over'});
 });
 
 module.exports = router;
