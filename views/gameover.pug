@@ -1,0 +1,8 @@
+extends layout
+
+block content
+
+    h1.text-center Game Over
+    h2 #{localStorageScore}
+    script.
+        const localStorageScore = localStorage.getItem(playerChraracter.score)

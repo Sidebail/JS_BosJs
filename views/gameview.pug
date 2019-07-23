@@ -1,0 +1,81 @@
+head
+    title Defeat Enemies!
+    style.
+        li{
+            background-color: white;
+        }
+        body {
+            /* The image used */
+            background-image: url("https://img.itch.zone/aW1hZ2UvMzQyNjAwLzE2OTg4MzEucG5n/original/DOT1NH.png");
+
+            /* Full height */
+            height: 100%; 
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        }
+
+        html { 
+            background-color: yellow;
+        }
+body#content
+    h1#level(style="background-color: white;")
+    h3#score(style="background-color: white;") 
+    table
+        tr 
+            th
+                ul
+                    li
+                        h1#pName
+                    li
+                        p#pHealth 
+                    li
+                        img(src="https://i.ibb.co/4N4kRhG/hero.gif",width="256px", height="256px", alt="placeholder")#pPicture
+                    li
+                        p#pAttack
+                    li
+                        p#pArmor            
+            td 
+                ul
+                    li
+                        button(class="btn btn-primary")#defHead Defend Head
+                    li
+                        button(class="btn btn-primary")#defTorso Defend Torso
+                    li
+                        button(class="btn btn-primary")#defLegs Defend Legs
+            td 
+                ul
+                    li
+                        button(class="btn btn-primary")#atHead Attack Head
+                    li
+                        button(class="btn btn-primary")#atTorso Attack Torso
+                    li
+                        button(class="btn btn-primary")#atLegs Attack Legs 
+            th
+                ul
+                    li
+                        h1#eName
+                    li
+                        p#eHealth
+                    li
+                        img(src="https://www.gamedevmarket.net/wp-content/uploads/df40ac67288c750b6c22fc915450925737e9dbfb.gif", width="256px", height="256px", alt="placeholder")#ePicture
+                    li
+                        p#eAttack
+                    li
+                        p#eArmor
+            td 
+                ul
+                    li
+                        button(class="btn btn-primary",hidden='hidden')#drop1
+                    li
+                        button(class="btn btn-primary",hidden='hidden')#drop2
+                    li
+                        button(class="btn btn-primary", hidden='hidden')#drop3 
+
+    textarea#gameText(readonly='', rows='10', cols='75')
+script(src='/dist/bundle.js')      
+
+    
