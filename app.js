@@ -13,6 +13,8 @@ const GithubStrategy = require('passport-github').Strategy;
 const User = require('./models/user');
 
 // connect mongoose
+//mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/test?retryWrites=true&w=majority`, { useNewUrlParser: true});
+
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/test?retryWrites=true&w=majority`, { useNewUrlParser: true});
 // mongoose variables
 var db = mongoose.connection;
