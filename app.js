@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-//const GithubStrategy = require('passport-github').Strategy;
+const GithubStrategy = require('passport-github').Strategy;
 const User = require('./models/user');
 
 // connect mongoose
@@ -61,7 +61,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 //GITHUB AUTHENTICATION
 
-/*passport.use(
+passport.use(
   new GithubStrategy(
     {
       clientID: process.env.CLIENT_ID,
@@ -84,7 +84,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
-});*/
+});
 
 
 //passport.serializeUser(User.serializeUser());
