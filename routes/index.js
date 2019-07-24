@@ -36,6 +36,8 @@ router.post('/gameview', function(req, res){
 
 
   player.save();
+
+  res.redirect(`/gameover`);
 });
 
 router.get('/gameover', function(req,res,next){

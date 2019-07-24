@@ -455,7 +455,7 @@ checkHealth = function(){
         console.log("before submit");
         submitScore.click();
         console.log("after submit");
-        window.location.href = "/gameover";
+       // window.location.href = "/gameover";
        //window.open("/gameover", score=`${playerChraracter.score}`);
     }
 }
