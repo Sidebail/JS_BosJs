@@ -12,6 +12,7 @@ const playerSchema = new Schema({
     animAttack: String,
     animDefend: String,
     //inventory: Item[3] -- NEEDS REVISE!
+    arrayOfEnemies: []
 });
 
 

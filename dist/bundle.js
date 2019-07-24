@@ -27,8 +27,29 @@ const ePicture = document.getElementById('ePicture');
 const drop1 = document.getElementById('drop1');
 const drop2 = document.getElementById('drop2');
 const drop3 = document.getElementById('drop3');
-// player score
-const scoreForm = document.getElementById('scoreform');
+//Form items for the outputting the stats
+// Player
+const nameForm = document.getElementById('nameform');
+const levelForm = document.getElementById('levelform');
+const maxHealthForm = document.getElementById('maxHealthform');
+const attackForm = document.getElementById('attackform');
+const armorForm = document.getElementById('armorform');
+// Enemy 1
+const e1nameForm = document.getElementById('e1nameform');
+const e1maxHealthForm = document.getElementById('e1maxHealthform');
+const e1attackForm = document.getElementById('e1attackform');
+const e1armorForm = document.getElementById('e1armorform');
+// Enemy 2
+const e2nameForm = document.getElementById('e2nameform');
+const e2maxHealthForm = document.getElementById('e2maxHealthform');
+const e2attackForm = document.getElementById('e2attackform');
+const e2armorForm = document.getElementById('e2armorform');
+// Enemy 3
+const e3nameForm = document.getElementById('e3nameform');
+const e3maxHealthForm = document.getElementById('e3maxHealthform');
+const e3attackForm = document.getElementById('e3attackform');
+const e3armorForm = document.getElementById('e3armorform');
+
 const submitScore = document.getElementById('submitScore');
 
 // DELETE FOR PROD
@@ -365,7 +386,7 @@ checkHealth = function(){
     //Enemy's death
     if(enemyModel.health <= 0){
         updateGameText(`${enemyModel.name} has been defeated!`);
-        playerChraracter.defeatedEnemies.push(Object.assign({},enemyModel));
+        playerChraracter.defeatedEnemies.unshift(Object.assign({},enemyModel));
         updateGameText(playerChraracter.defeatedEnemies);
         increaseScore(playerChraracter.score);
         enableDrops();
@@ -448,7 +469,29 @@ updateScene = function(){
   eArmor.textContent = `Armor: ${enemyModel.armor}`;
   ePicture.src = enemyModel.animIdle;
 
-  scoreForm.value = playerChraracter.score;
+  /////
+  // Player 1
+  nameForm.value = playerChraracter.name;
+  levelForm.value = playerChraracter.level;
+  maxHealthForm.value = playerChraracter.maxHealth;
+  attackForm.value = playerChraracter.attack;
+  armorForm.value = playerChraracter.armor;
+  // Enemy 1
+  e1nameForm.value = playerChraracter.defeatedEnemies[0].name;
+  e1maxHealthForm.value = playerChraracter.defeatedEnemies[0].maxHealth;
+  e1attackForm.value = playerChraracter.defeatedEnemies[0].attack;
+  e1armorForm.value = playerChraracter.defeatedEnemies[0].armor;
+  // Enemy 2
+  e2nameForm.value = playerChraracter.defeatedEnemies[1].name;
+  e2maxHealthForm.value = playerChraracter.defeatedEnemies[1].maxHealth;
+  e2attackForm.value = playerChraracter.defeatedEnemies[1].attack;
+  e2armorForm.value = playerChraracter.defeatedEnemies[1].armor;
+  // Enemy 3
+  e3nameForm.value = playerChraracter.defeatedEnemies[2].name;
+  e3maxHealthForm.value = playerChraracter.defeatedEnemies[2].maxHealth;
+  e3attackForm.value = playerChraracter.defeatedEnemies[2].attack;
+  e3armorForm.value = playerChraracter.defeatedEnemies[2].armor;
+  ////
 }
 
 newRound();

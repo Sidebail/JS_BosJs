@@ -77,8 +77,28 @@ body#content
     button(class="btn btn-primary")#die Die lol
     textarea#gameText(readonly='', rows='10', cols='75')
     form(type="hidden" method="post")
-     input(type="hidden" name="score" id="scoreform")
+     input(type="hidden" name="name" id="nameform")
+     input(type="hidden" name="level" id="levelform")
+     input(type="hidden" name="maxHealth" id="maxHealthform")
+     input(type="hidden" name="attack" id="attackform")
+     input(type="hidden" name="armor" id="armorform")
+
+     input(type="hidden" name="e1name" id="e1nameform")
+     input(type="hidden" name="e1maxHealth" id="e1maxHealthform")
+     input(type="hidden" name="e1attack" id="e1attackform")
+     input(type="hidden" name="e1armor" id="e1armorform")
+
+     input(type="hidden" name="e2name" id="e2nameform")
+     input(type="hidden" name="e2maxHealth" id="e2maxHealthform")
+     input(type="hidden" name="e2attack" id="e2attackform")
+     input(type="hidden" name="e2armor" id="e2armorform")
+
+     input(type="hidden" name="e3name" id="e3nameform")
+     input(type="hidden" name="e3maxHealth" id="e3maxHealthform")
+     input(type="hidden" name="e3attack" id="e3attackform")
+     input(type="hidden" name="e3armor" id="e3armorform")
+     
      input(type="submit" style="display:none" id="submitScore")
-script(src='/dist/bundle.js')      
+script(src='/dist/bundle.js')     
 
     
