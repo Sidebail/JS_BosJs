@@ -37,10 +37,10 @@ router.post('/gameview', function(req, res){
 });
 
 router.get('/gameover', function(req,res,next){
-  res.render('gameover', {title: 'Game Over', name: player.name, level: player.level, maxHealth: player.maxHealth, attack: player.attack, armor: player.armor,
-                          e1name: enemy1.name, e1maxHealth: enemy1.maxHealth, e1attack: enemy1.attack, e1armor: enemy1.armor,
-                          e2name: enemy2.name, e2maxHealth: enemy2.maxHealth, e2attack: enemy2.attack, e2armor: enemy2.armor,
-                          e3name: enemy3.name, e3maxHealth: enemy3.maxHealth, e3attack: enemy3.attack, e3armor: enemy3.armor});
+  res.render('gameover', {title: 'Game Over', name: player.name, level: player.level, maxHealth: player.health, attack: player.attack, armor: player.armor,
+                          e1name: enemy1.name, e1maxHealth: enemy1.health, e1attack: enemy1.attack, e1armor: enemy1.armor,
+                          e2name: enemy2.name, e2maxHealth: enemy2.health, e2attack: enemy2.attack, e2armor: enemy2.armor,
+                          e3name: enemy3.name, e3maxHealth: enemy3.health, e3attack: enemy3.attack, e3armor: enemy3.armor});
 });
 
 module.exports = router;
