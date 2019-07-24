@@ -388,7 +388,7 @@ checkHealth = function(){
     if(enemyModel.health <= 0){
         updateGameText(`${enemyModel.name} has been defeated!`);
         playerChraracter.defeatedEnemies.unshift(Object.assign({},enemyModel));
-        updateGameText(playerChraracter.defeatedEnemies);
+        //updateGameText(playerChraracter.defeatedEnemies);
         increaseScore(playerChraracter.score);
         enableDrops();
 
