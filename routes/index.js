@@ -31,8 +31,8 @@ router.post('/gameview', function(req, res){
   enemy1 = new Enemy({ name: req.body.e1name, health: req.body.e1maxHealth, attack: req.body.e1attack, armor: req.body.e1armor,});
   enemy2 = new Enemy({ name: req.body.e2name, health: req.body.e2maxHealth, attack: req.body.e2attack, armor: req.body.e2armor,});
   enemy3 = new Enemy({ name: req.body.e3name, health: req.body.e3maxHealth, attack: req.body.e3attack, armor: req.body.e3armor,});
-  
-  player = new Player({ name: nickname, health: req.body.maxHealth, attack: req.body.attack , armor: req.body.armor, level: req.body.level, lastThreeEnemies: [enemy1, enemy2, enemy3]});
+
+  player = new Player({ name: req.body.name, health: req.body.maxHealth, attack: req.body.attack , armor: req.body.armor, level: req.body.level, lastThreeEnemies: [enemy1, enemy2, enemy3]});
 
 
   player.save();
