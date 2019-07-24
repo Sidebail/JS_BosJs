@@ -4,6 +4,10 @@ var express = require('express');
 var router = express.Router();
 var nickname;
 var finalscore;
+var enemy1;
+var enemy2;
+var enemy3;
+var player;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -24,16 +28,16 @@ router.get('/gameview', function(req,res,next){
 router.post('/gameview', function(req, res){
   //finalscore = req.body.score; 
   // create 3 enemy models with data from gameview
-  let enemy1 = new Enemy({ name: req.body.e1name, health: req.body.e1maxHealth, attack: req.body.e1attack, armor: req.body.e1armor,});
-  let enemy2 = new Enemy({ name: req.body.e2name, health: req.body.e2maxHealth, attack: req.body.e2attack, armor: req.body.e2armor,});
-  let enemy3 = new Enemy({ name: req.body.e3name, health: req.body.e3maxHealth, attack: req.body.e3attack, armor: req.body.e3armor,});
+  enemy1 = new Enemy({ name: req.body.e1name, health: req.body.e1maxHealth, attack: req.body.e1attack, armor: req.body.e1armor,});
+  enemy2 = new Enemy({ name: req.body.e2name, health: req.body.e2maxHealth, attack: req.body.e2attack, armor: req.body.e2armor,});
+  enemy3 = new Enemy({ name: req.body.e3name, health: req.body.e3maxHealth, attack: req.body.e3attack, armor: req.body.e3armor,});
 
-  let player = new Player({ name: req.body.name, health: req.body.maxHealth, attack: req.body.attack , armor: req.body.armor, level: req.body.level, lastThreeEnemies: [enemy1, enemy2, enemy3]});
+  player = new Player({ name: req.body.name, health: req.body.maxHealth, attack: req.body.attack , armor: req.body.armor, level: req.body.level, lastThreeEnemies: [enemy1, enemy2, enemy3]});
   player.save();
 });
 
 router.get('/gameover', function(req,res,next){
-  res.render('gameover', {title: 'Game Over', score: finalscore });
+  res.render('gameover', {title: 'Game Over', name: player.name, level: player.level, maxHealth: player.maxHealth, attack: player.attack, armor: player.armor });
 });
 
 module.exports = router;
