@@ -10,10 +10,14 @@ block content
    h3.text-center= attack
    h3.text-center Your Armor:
    h3.text-center= armor
-   h3.text-center Last 3 defeated enemies:
+   if e1name === ""
+    h3.text-center You didn't defeat a single one?! C'mon!
+   else
+    h3.text-center Last 3 defeated enemies:
    table
        tr
            td
+            if e1name !== ""
                h4.text-center= e1name
                ul
                    li
@@ -26,6 +30,7 @@ block content
                        h5 Armor
                        h5.text-center= e1armor
            td
+            if e2name !== ""
                h4.text-center= e2name
                ul
                    li
@@ -38,6 +43,7 @@ block content
                        h5 Armor
                        h5.text-center= e2armor
            td
+            if e3name !== ""
                h4.text-center= e3name
                ul
                    li
