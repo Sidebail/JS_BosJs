@@ -89,7 +89,7 @@ var playerChraracter = {
     recieveDamage: function(damage){
         if(damage-this.armor > 0){
             this.health = this.health - (damage-this.armor);
-            this.takenDamage = this.takenDamage + damage;
+            this.takenDamage = this.takenDamage + (damage-this.armor);
         }else{
             updateGameText(`Negative value damage - armor value`);
             this.health = this.health - 1;
