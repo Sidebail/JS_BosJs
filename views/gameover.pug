@@ -2,10 +2,57 @@ extends layout
 
 block content
 
-    h1.text-center= title
+    h1.text-center Hero has been (finally) defeated!
+
+    h3.text-center=name
 
     h3.text-center Your Final Score: 
-    h3.text-center= score
+    h3.text-center= level
+    h3.text-center Your Maximum Health: 
+    h3.text-center= maxHealth
+    h3.text-center Your Attack: 
+    h3.text-center= attack
+    h3.text-center Your Armor: 
+    h3.text-center= armor
+    h3.text-center Last 3 defeated enemies:
+    table
+        tr
+            td
+                h4.text-center=e1name
+                ul
+                    li
+                        h5 Health
+                        h5.text-center=e1maxHealth
+                    li
+                        h5 Attack
+                        h5.text-center=e1attack
+                    li
+                        h5 Armor
+                        h5.text-center=e1armor
+            td
+                h4.text-center=e2name
+                ul
+                    li
+                        h5 Health
+                        h5.text-center=e2maxHealth
+                    li
+                        h5 Attack
+                        h5.text-center=e2attack
+                    li
+                        h5 Armor
+                        h5.text-center=e2armor
+            td
+                h4.text-center=e3name
+                ul
+                    li
+                        h5 Health
+                        h5.text-center=e3maxHealth
+                    li
+                        h5 Attack
+                        h5.text-center=e3attack
+                    li
+                        h5 Armor
+                        h5.text-center=e3armor
 
     h6.text-center
-        a.nav-link(href='/leaderboard') Are you on the leader board?
+        a.nav-link(href='/leaderboard') Are you on the leaderboard?
