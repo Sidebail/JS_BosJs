@@ -246,7 +246,9 @@ enemyAttack = function(){
 }
 
 die.addEventListener('click' , function(){
-    playerChraracter.recieveDamage(playerChraracter.health);
+    playerChraracter.recieveDamage(100000000000000000000000);
+    switchToAttack();
+    atHead.click();
 });
 //Adding listeners with functions!
 //Defenders
