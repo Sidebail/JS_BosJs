@@ -416,20 +416,38 @@ checkHealth = function(){
             e1maxHealthForm.value = playerChraracter.defeatedEnemies[0].maxHealth;
             e1attackForm.value = playerChraracter.defeatedEnemies[0].attack;
             e1armorForm.value = playerChraracter.defeatedEnemies[0].armor;
+        }else{
+            e1nameForm.value = "";
+            e1maxHealthForm.value = "";
+            e1attackForm.value = "";
+            e1armorForm.value = "";
+       
         }
         // Enemy 2
-        if(typeof playerChraracter.defeatedEnemies[0] !== 'undefined'){
+        if(typeof playerChraracter.defeatedEnemies[1] !== 'undefined'){
             e2nameForm.value = playerChraracter.defeatedEnemies[1].name;
             e2maxHealthForm.value = playerChraracter.defeatedEnemies[1].maxHealth;
             e2attackForm.value = playerChraracter.defeatedEnemies[1].attack;
             e2armorForm.value = playerChraracter.defeatedEnemies[1].armor;
+        }else{
+            e2nameForm.value = "";
+            e2maxHealthForm.value = "";
+            e2attackForm.value = "";
+            e2armorForm.value = "";
+       
         }
         // Enemy 3
-        if(typeof playerChraracter.defeatedEnemies[0] !== 'undefined'){
+        if(typeof playerChraracter.defeatedEnemies[2] !== 'undefined'){
             e3nameForm.value = playerChraracter.defeatedEnemies[2].name;
             e3maxHealthForm.value = playerChraracter.defeatedEnemies[2].maxHealth;
             e3attackForm.value = playerChraracter.defeatedEnemies[2].attack;
             e3armorForm.value = playerChraracter.defeatedEnemies[2].armor;
+        }else{
+            e3nameForm.value = "";
+            e3maxHealthForm.value = "";
+            e3attackForm.value = "";
+            e3armorForm.value = "";
+       
         }
         ////
         console.log("before submit");
