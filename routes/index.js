@@ -2,7 +2,7 @@ const Enemy = require('../models/enemy');
 const Player = require('../models/player');
 var express = require('express');
 var router = express.Router();
-var nickname;
+var nickname = "Default";
 var finalscore;
 var enemy1;
 var enemy2;
@@ -32,7 +32,7 @@ router.post('/gameview', function(req, res){
   enemy2 = new Enemy({ name: req.body.e2name, health: req.body.e2maxHealth, attack: req.body.e2attack, armor: req.body.e2armor,});
   enemy3 = new Enemy({ name: req.body.e3name, health: req.body.e3maxHealth, attack: req.body.e3attack, armor: req.body.e3armor,});
 
-  player = new Player({ name: req.body.name, health: req.body.maxHealth, attack: req.body.attack , armor: req.body.armor, level: req.body.level, lastThreeEnemies: [enemy1, enemy2, enemy3]});
+  player = new Player({ name: nickname, health: req.body.maxHealth, attack: req.body.attack , armor: req.body.armor, level: req.body.level, lastThreeEnemies: [enemy1, enemy2, enemy3]});
   player.save();
 });
 
