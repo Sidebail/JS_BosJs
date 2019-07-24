@@ -8,11 +8,11 @@ const playerSchema = new Schema({
     armor: Number,
     level: Number,
     //pierce: Number,
-    animIdle: String,
-    animAttack: String,
-    animDefend: String,
+    // animIdle: String,
+    // animAttack: String,
+    // animDefend: String,
     //inventory: Item[3] -- NEEDS REVISE!
-    arrayOfEnemies: []
+    lastThreeEnemies: []
 });
 
 

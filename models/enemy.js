@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-var enemyNames = [`Orc`, `Elf`, `Thief`, `Skeleton`, `Dragon`];
-var tier2Prefixes = [`Slick`, `Big`,`Old`,`Noob`,`Recruit`,`Half-dead`]
-var tier3Prefixes = [`Warchief`,`Captain`,`Pirate`,`Wizard`,`Smart`]
-var tier4Prefixes = [`Elder`,`Ancient`,`Centurion`,`King`,`Vengeful`]
-var tier5Prefixes = [`Unstoppable`,`Invincible`,`Godlike`,`Magnificent`,`Super-duper`]
+// var enemyNames = [`Orc`, `Elf`, `Thief`, `Skeleton`, `Dragon`];
+// var tier2Prefixes = [`Slick`, `Big`,`Old`,`Noob`,`Recruit`,`Half-dead`]
+// var tier3Prefixes = [`Warchief`,`Captain`,`Pirate`,`Wizard`,`Smart`]
+// var tier4Prefixes = [`Elder`,`Ancient`,`Centurion`,`King`,`Vengeful`]
+// var tier5Prefixes = [`Unstoppable`,`Invincible`,`Godlike`,`Magnificent`,`Super-duper`]
 
-var healthMaxMins = [3,10,25,55,80][7,17,40,70,100];
-var attackMaxMins = [1,3,8,18,30][3,7,13,26,50];
+// var healthMaxMins = [3,10,25,55,80][7,17,40,70,100];
+// var attackMaxMins = [1,3,8,18,30][3,7,13,26,50];
 
 //Name is setted randomly
 // Tier 1 doesnt have prefix
@@ -19,12 +19,12 @@ const enemySchema = new Schema({
     health: Number,
     attack: Number,
     armor: Number,
-    tier: Number,
-    //pierce: Number,
+    // tier: Number,
+    // //pierce: Number,
 
-    animIdle: String,
-    animAttack: String,
-    animDefend: String
+    // animIdle: String,
+    // animAttack: String,
+    // animDefend: String
 });
 
 /*
