@@ -411,20 +411,26 @@ checkHealth = function(){
         attackForm.value = playerChraracter.attack;
         armorForm.value = playerChraracter.armor;
         // Enemy 1
-        e1nameForm.value = playerChraracter.defeatedEnemies[0].name;
-        e1maxHealthForm.value = playerChraracter.defeatedEnemies[0].maxHealth;
-        e1attackForm.value = playerChraracter.defeatedEnemies[0].attack;
-        e1armorForm.value = playerChraracter.defeatedEnemies[0].armor;
+        if(typeof playerChraracter.defeatedEnemies[0] !== 'undefined'){
+            e1nameForm.value = playerChraracter.defeatedEnemies[0].name;
+            e1maxHealthForm.value = playerChraracter.defeatedEnemies[0].maxHealth;
+            e1attackForm.value = playerChraracter.defeatedEnemies[0].attack;
+            e1armorForm.value = playerChraracter.defeatedEnemies[0].armor;
+        }
         // Enemy 2
-        e2nameForm.value = playerChraracter.defeatedEnemies[1].name;
-        e2maxHealthForm.value = playerChraracter.defeatedEnemies[1].maxHealth;
-        e2attackForm.value = playerChraracter.defeatedEnemies[1].attack;
-        e2armorForm.value = playerChraracter.defeatedEnemies[1].armor;
+        if(typeof playerChraracter.defeatedEnemies[0] !== 'undefined'){
+            e2nameForm.value = playerChraracter.defeatedEnemies[1].name;
+            e2maxHealthForm.value = playerChraracter.defeatedEnemies[1].maxHealth;
+            e2attackForm.value = playerChraracter.defeatedEnemies[1].attack;
+            e2armorForm.value = playerChraracter.defeatedEnemies[1].armor;
+        }
         // Enemy 3
-        e3nameForm.value = playerChraracter.defeatedEnemies[2].name;
-        e3maxHealthForm.value = playerChraracter.defeatedEnemies[2].maxHealth;
-        e3attackForm.value = playerChraracter.defeatedEnemies[2].attack;
-        e3armorForm.value = playerChraracter.defeatedEnemies[2].armor;
+        if(typeof playerChraracter.defeatedEnemies[0] !== 'undefined'){
+            e3nameForm.value = playerChraracter.defeatedEnemies[2].name;
+            e3maxHealthForm.value = playerChraracter.defeatedEnemies[2].maxHealth;
+            e3attackForm.value = playerChraracter.defeatedEnemies[2].attack;
+            e3armorForm.value = playerChraracter.defeatedEnemies[2].armor;
+        }
         ////
         console.log("before submit");
         submitScore.click();
