@@ -2,7 +2,7 @@ extends layout
 
 block content
 	.container
-		h2 Table
+		h2 Leaderboards
 		.table-responsive
 			table.table
 				thead
@@ -12,8 +12,6 @@ block content
 						th Player Name
 						th High Score
 				tbody
-					tr
-						td 1
-						td Test
-						td Player Test
-						td 35
+				- for(varx=1;x<16;x++)
+					li items
+						

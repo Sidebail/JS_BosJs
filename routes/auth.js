@@ -5,7 +5,7 @@ const User = require("../models/user");
 
 // 1 - Render login form
 router.get("/login", (req, res) =>
-  res.render("login", { buttonText: "Login" })
+  res.render("login")
 );
 // 2 - Handle Login Form Submission
 router.post(
