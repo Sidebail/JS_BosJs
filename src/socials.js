@@ -36,12 +36,13 @@ vkontakteShare.onclick = function(e) {
     e.preventDefault();
     var vkontakteWindow = window.open(`
     http://vkontakte.ru/share.php?url=${encodeURIComponent(`https://bosjs.herokuapp.com/?
-    &title=${vkText}
-    `)}`, 'ShareOnVk', 'height=350,width=600');
-    //&title=${encodeURIComponent(`BosJS Game`)}
-    //&description=${encodeURIComponent(`norm takoe opisanie`)}
-    //&image=${encodeURIComponent(`https://data.junkee.com/wp-content/uploads/2017/04/static1.squarespace.jpg`)}
-    
+    `)}
+    &title=${vkText}`, 'ShareOnVk', 'height=350,width=600');
     if(vkontakteWindow.focus) { vkontakteWindow.focus(); }
       return false;
+
+    /*
+    //&description=${encodeURIComponent(`norm takoe opisanie`)}
+    //&image=${encodeURIComponent(`https://data.junkee.com/wp-content/uploads/2017/04/static1.squarespace.jpg`)}
+     */
   }
