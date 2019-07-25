@@ -11,7 +11,7 @@ var player;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'BosJS' });
+  res.render('login', { title: 'Login' });
 });
 
 
@@ -63,7 +63,6 @@ router.get('/gameover', function(req,res,next){
 });
 
 //Testing page for trying to access leaderboard
-
 
 
 router.get('/leaderboard', function(req,res,next)
