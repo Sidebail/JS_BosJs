@@ -10,6 +10,7 @@ var text = encodeURIComponent(
 Think you can do better? Try yourself out - https://bosjs.herokuapp.com
 
 Beat my score if you dare! See ya on the leaderboards`)
+var vkText = encodeURIComponent(`My ${name.textContent} defeated ${level.textContent} enemies! Can you beat my score?`);
 
 var shareUrltwitter = 'https://twitter.com/intent/tweet?url=' + '&text=' + text;
 
@@ -35,7 +36,7 @@ vkontakteShare.onclick = function(e) {
     e.preventDefault();
     var vkontakteWindow = window.open(`
     http://vkontakte.ru/share.php?url=${encodeURIComponent(`https://bosjs.herokuapp.com/?
-    &title=${encodeURIComponent(`BosJS Game`)}
+    &title=${vkText}
     `)}`, 'ShareOnVk', 'height=350,width=600');
     //&title=${encodeURIComponent(`BosJS Game`)}
     //&description=${encodeURIComponent(`norm takoe opisanie`)}
