@@ -10,6 +10,7 @@ const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const GithubStrategy = require('passport-github').Strategy;
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('./models/user');
 
 // connect mongoose
@@ -83,13 +84,43 @@ passport.use(
   )
 );
 
+//Google Authentication
+/*
+passport.use(
+  new GoogleStrategy(
+    {
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: process.env.GOOGLE_CALLBACK_URL
+    },
+    function(accessToken, refreshToken, profile, cb) {
+      console.log(profile);
+      User.findOne({ googleId: profile.id }, function(err, user) {
+        if (!err && !user) {
+          const newgithub = new User({ ...profile, googleId: profile.id });
+          newgithub.save();
+          return cb(null, newgithub);
+        } else {
+          return cb(err, user);
+        }
+      });
+    }
+  )
+);
+*/
+
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => {
+    done(null, user);
+  });
+});
 
 //passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+//passport.deserializeUser(User.deserializeUser());
 
 app.use('/', indexRouter);
 app.use('/', authRouter);
