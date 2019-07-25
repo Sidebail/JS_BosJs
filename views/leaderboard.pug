@@ -16,9 +16,9 @@ block content
 						th Enemy Name 2
 						th Enemy Name 3
 				tbody
-				each player in players
+				each player, index in players
 					tr
-						td 1
+						td= index + 1
 						td= player.name
 						td= player.level
 						td= player.health
