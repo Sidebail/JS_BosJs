@@ -14,9 +14,9 @@ const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('./models/user');
 
 // connect mongoose
-//mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/test?retryWrites=true&w=majority`, { useNewUrlParser: true});
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/test?retryWrites=true&w=majority`, { useNewUrlParser: true});
 
-mongoose.connect(`mongodb+srv://bosJS_dbUser:syRo93xpOZmmJ0gR@cluster0-2gc7m.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true});
+//mongoose.connect(`mongodb+srv://bosJS_dbUser:syRo93xpOZmmJ0gR@cluster0-2gc7m.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true});
 // mongoose variables
 var db = mongoose.connection;
 db.on('error', err => console.error(err));
