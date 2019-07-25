@@ -1,6 +1,6 @@
-const Leaderboard = require('../../models/player');
+const Player = require('../../models/player');
 
 exports.findAllPlayers = async (req, res) => {
-  const player = await Leaderboard.find();
-  res.render('leaderboard', { player });
+  const players = await Player.find();
+  res.render('leaderboard', { players });
 };
