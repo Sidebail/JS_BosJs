@@ -12,8 +12,9 @@ block content
 						th Player Name
 						th High Score
 				tbody
+				each player in player
+
 					tr
-						td 1
-						td Test
-						td Player Test
-						td 35
+						td player.name
+						td player.level
+						
