@@ -11,6 +11,9 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const GithubStrategy = require('passport-github').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+const TwitterStrategy = require('passport-twitter').Strategy;
+const VKontakteStrategy = require('passport-vkontakte').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 const User = require('./models/user');
 
 // connect mongoose
@@ -107,6 +110,46 @@ passport.use(
     }
   )
 );
+
+//Twitter Authentication
+passport.use(new TwitterStrategy({
+  consumerKey: process.env.TWITTER_CONSUMER_KEY,
+  consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+  callbackURL: process.env.TWITTER_CALLBACK_URL
+},
+function(token, tokenSecret, profile, cb) {
+  User.findOrCreate({ twitterId: profile.id }, function (err, user) {
+    return cb(err, user);
+  });
+}
+));
+
+//VKontakte Authentication
+passport.use(new VKontakteStrategy({
+  clientID:     process.env.VKONTAKTE_APP_ID, // VK.com docs call it 'API ID', 'app_id', 'api_id', 'client_id' or 'apiId'
+  clientSecret: process.env.VKONTAKTE_APP_SECRET,
+  callbackURL:  process.env.VKONTAKTE_CALLBACK_URL
+},
+function(accessToken, refreshToken, params, profile, done) {
+  // console.log(params.email); // getting the email
+  User.findOrCreate({ vkontakteId: profile.id }, function (err, user) {
+    return done(err, user);
+  });
+}
+));
+
+//Facebook Authentication
+passport.use(new FacebookStrategy({
+  clientID: process.env.FACEBOOK_APP_ID,
+  clientSecret: process.env.FACEBOOK_APP_SECRET,
+  callbackURL: process.env.FACEBOOK_CALLBACK_URL
+},
+function(accessToken, refreshToken, profile, cb) {
+  User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+    return cb(err, user);
+  });
+}
+));
 
 
 passport.serializeUser((user, done) => {
