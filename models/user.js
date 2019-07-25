@@ -6,11 +6,9 @@ const passportLocalMongoose = require('passport-local-mongoose');
 const userSchema = new Schema({
   username: String,
   password: String,
-  googleId: String,
-  githubId: String
+  highestScore: Number
 });
 
-userSchema.plugin(findorcreate);
 userSchema.plugin(passportLocalMongoose);
 
 const User = mongoose.model('User', userSchema);
