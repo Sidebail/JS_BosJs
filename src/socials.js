@@ -3,14 +3,15 @@
     https://codepen.io/Huskie/pen/wKphk
 */
 var twitterShare = document.querySelector('[data-js="twitter-share"]');
-var name = document.getElementById('name');
+//var name = document.getElementById('pname');
+//console.log(document.getElementById('pname').textContent);
 var level = document.getElementById('level');
 var text = encodeURIComponent(
-`Hey! My hero ${name.textContent} had beaten up ${level.textContent} enemies in #BosJS!
+`Hey! My hero ${document.getElementById('pname').textContent} had beaten up ${level.textContent} enemies in #BosJS!
 Think you can do better? Try yourself out - https://bosjs.herokuapp.com
 
 Beat my score if you dare! See ya on the leaderboards`)
-var vkText = encodeURIComponent(`My ${name.textContent} defeated ${level.textContent} enemies! Can you beat my score?`);
+var vkText = encodeURIComponent(`My ${document.getElementById('pname').textContent} defeated ${level.textContent} enemies! Can you beat my score?`);
 
 var shareUrltwitter = 'https://twitter.com/intent/tweet?url=' + '&text=' + text;
 
