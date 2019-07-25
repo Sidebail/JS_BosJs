@@ -23,7 +23,7 @@ const requireAuth = (req, res, next) => {
 };
 router.post('*', requireAuth); // Protect ALL POST routes
 
-//router.use(requireAuth);
+router.use(requireAuth);
 
 // get nickname submission from index
 router.post('/', function(req, res) {
@@ -35,7 +35,6 @@ router.get('/gameview', function(req,res,next){
   res.render('gameview', { title: 'Defeat Enemies!', playerName: nickname });
 });
 
-router.use(requireAuth);
 // this receives data from game about enemies and player
 router.post('/gameview', function(req, res){
   //finalscore = req.body.score; 
