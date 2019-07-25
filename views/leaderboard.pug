@@ -2,8 +2,8 @@ extends layout
 
 block content
 	.container
-		if isAuthenticated
-		h2 Table
+	if isAuthenticated
+		h2.text-center 100 Best Boss-Killers!
 		.table-responsive
 			table.table
 				thead
@@ -27,5 +27,8 @@ block content
 						td= player.lastThreeEnemies[0].name
 						td= player.lastThreeEnemies[1].name
 						td= player.lastThreeEnemies[2].name
+			h3.text-center Didn't find yourself? Try better and compete for the 1st place!
 	else
-		h2 You have to be logged in to see the leaders, killa-h!
+		h1.text-center You have to be logged in to see the leaders, killa-h!
+	
+	
