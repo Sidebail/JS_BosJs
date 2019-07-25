@@ -140,7 +140,7 @@ function(accessToken, refreshToken, params, profile, done) {
 }
 ));
 
-/*
+
 //Facebook Authentication
 passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_APP_ID,
@@ -153,7 +153,7 @@ function(accessToken, refreshToken, profile, cb) {
   });
 }
 ));
-*/
+
 
 
 passport.serializeUser((user, done) => {
