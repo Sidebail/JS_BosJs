@@ -1,6 +1,6 @@
-var express = require('express');
 const Enemy = require('../models/enemy');
 const Player = require('../models/player');
+var express = require('express');
 var router = express.Router();
 var nickname = "Default";
 var finalscore;
@@ -14,17 +14,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'BosJS' });
 });
 
-
-//DELETE IF IT DOESNT WORK
-const requireAuth = (req, res, next) => {
-  if (req.isAuthenticated()) return next();
-
-  return res.redirect('/login');
-};
-router.post('*', requireAuth); // Protect ALL POST routes
-
-//router.use(requireAuth);
-
 // get nickname submission from index
 router.post('/', function(req, res) {
   nickname = req.body.nickname;
@@ -34,7 +23,6 @@ router.post('/', function(req, res) {
 router.get('/gameview', function(req,res,next){
   res.render('gameview', { title: 'Defeat Enemies!', playerName: nickname });
 });
-
 
 // this receives data from game about enemies and player
 router.post('/gameview', function(req, res){
@@ -48,8 +36,6 @@ router.post('/gameview', function(req, res){
 
 
   player.save();
-
-  res.redirect(`/gameover`);
 });
 
 router.get('/gameover', function(req,res,next){
@@ -60,15 +46,6 @@ router.get('/gameover', function(req,res,next){
                           e2name: enemy2.name, e2maxHealth: enemy2.health, e2attack: enemy2.attack, e2armor: enemy2.armor,
                           e3name: enemy3.name, e3maxHealth: enemy3.health, e3attack: enemy3.attack, e3armor: enemy3.armor});
   
-});
-
-//Testing page for trying to access leaderboard
-
-
-
-router.get('/leaderboard', function(req,res,next)
-{
-	res.render('leaderboard', {title: 'Leaderboard'})
 });
 
 module.exports = router;
