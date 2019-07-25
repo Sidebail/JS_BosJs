@@ -16,7 +16,7 @@ router.post(
   })
 );
 
-
+//GitHub Login
 router.get(`/auth/github`, passport.authenticate('github'));
 
 router.get(
@@ -26,6 +26,22 @@ router.get(
     // Successful authentication, redirect home.
     res.redirect('/');
   }
+);
+
+// Google Login
+router.get(
+  `/auth/google`,
+  passport.authenticate('google', {
+    scope: ['profile']
+  })
+);
+
+router.get(
+  `/auth/google/callback`,
+  passport.authenticate('google', {
+    failureRedirect: '/login'
+  }),
+  (req, res) => res.redirect('/')
 );
 
 // 3 - Render Register Form
