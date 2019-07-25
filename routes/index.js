@@ -11,11 +11,7 @@ var player;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-<<<<<<< HEAD
   res.render('index', { title: 'BosJS' });
-=======
-  res.render('index', { title: 'Welcome to BosJS Game!' });
->>>>>>> 35493f1faf3cb9ae582172e2dca32471f53b4b86
 });
 
 // get nickname submission from index
