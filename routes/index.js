@@ -14,17 +14,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'BosJS' });
 });
 
-
-//DELETE IF IT DOESNT WORK
-const requireAuth = (req, res, next) => {
-  if (req.isAuthenticated()) return next();
-
-  return res.redirect('/login');
-};
-router.post('*', requireAuth); // Protect ALL POST routes
-
-
-
 // get nickname submission from index
 router.post('/', function(req, res) {
   nickname = req.body.nickname;
