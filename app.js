@@ -16,7 +16,6 @@ const User = require('./models/user');
 // connect mongoose
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/test?retryWrites=true&w=majority`, { useNewUrlParser: true});
 
-//mongoose.connect(`mongodb+srv://bosJS_dbUser:syRo93xpOZmmJ0gR@cluster0-2gc7m.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true});
 // mongoose variables
 var db = mongoose.connection;
 db.on('error', err => console.error(err));
@@ -86,7 +85,7 @@ passport.use(
 );
 
 //Google Authentication
-/*
+
 passport.use(
   new GoogleStrategy(
     {
@@ -98,9 +97,9 @@ passport.use(
       console.log(profile);
       User.findOne({ googleId: profile.id }, function(err, user) {
         if (!err && !user) {
-          const newgithub = new User({ ...profile, googleId: profile.id });
-          newgithub.save();
-          return cb(null, newgithub);
+          const newgoogle = new User({ ...profile, googleId: profile.id });
+          newgoogle.save();
+          return cb(null, newgoogle);
         } else {
           return cb(err, user);
         }
@@ -108,7 +107,7 @@ passport.use(
     }
   )
 );
-*/
+
 
 passport.serializeUser((user, done) => {
   done(null, user.id);

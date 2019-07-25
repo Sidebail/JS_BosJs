@@ -9,7 +9,10 @@ const userSchema = new Schema({
   password: String,
   highestScore: Number,
   googleId: String,
-  githubId: String
+  githubId: String,
+  facebookId: String,
+  twitterId: String,
+  vkontakteId: String
 });
 
 userSchema.plugin(findorcreate);

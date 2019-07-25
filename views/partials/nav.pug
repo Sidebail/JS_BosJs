@@ -1,5 +1,7 @@
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  a.navbar-brand(href='/') BossJS
+  a.navbar-brand(href='/') BosJS
+  if !isAuthenticated
+    span.text-center Login to see the leaderboards!
   button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
     span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
@@ -19,3 +21,15 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
           a.btn.btn-github(href="/auth/google")
             i.fa.fa-google
             span.ml-2 Login With Google 
+        li.nav-item
+          a.btn.btn-github(href="/auth/twitter")
+            i.fa.fa-twitter
+            span.ml-2 Login With Twitter 
+        li.nav-item
+          a.btn.btn-github(href="/auth/facebook")
+            i.fa.fa-facebook
+            span.ml-2 Login With Facebook 
+        li.nav-item
+          a.btn.btn-github(href="/auth/vkotnakte")
+            i.fa.fa-vk
+            span.ml-2 Login With Vkontakte 
