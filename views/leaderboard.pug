@@ -8,11 +8,21 @@ block content
 				thead
 					tr
 						th #
-						th Username
-						th Player Name
-						th High Score
+						th Name
+						th Level
+						th Health
+						th Attack
+						th Enemy Name 1
+						th Enemy Name 2
+						th Enemy Name 3
 				tbody
-					each player in players
-						tr
-							td p= player.Name
-							td p= player.Level
+				each player in players
+					tr
+						td 1
+						td= player.name
+						td= player.level
+						td= player.health
+						td= player.attack
+						td= player.lastThreeEnemies[0].name
+						td= player.lastThreeEnemies[1].name
+						td= player.lastThreeEnemies[2].name
