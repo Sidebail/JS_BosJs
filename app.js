@@ -21,6 +21,7 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${
 var db = mongoose.connection;
 db.on('error', err => console.error(err));
 db.once('open', () => console.log('Connected to Mongodb'));
+//db.collection.find( { $query: {}, $orderby: { level : -1 } } )
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
