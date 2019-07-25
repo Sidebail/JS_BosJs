@@ -111,6 +111,7 @@ passport.use(
   )
 );
 
+/*
 //Twitter Authentication
 passport.use(new TwitterStrategy({
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
@@ -123,6 +124,7 @@ function(token, tokenSecret, profile, cb) {
   });
 }
 ));
+*/
 
 //VKontakte Authentication
 passport.use(new VKontakteStrategy({
@@ -138,6 +140,7 @@ function(accessToken, refreshToken, params, profile, done) {
 }
 ));
 
+/*
 //Facebook Authentication
 passport.use(new FacebookStrategy({
   clientID: process.env.FACEBOOK_APP_ID,
@@ -150,6 +153,7 @@ function(accessToken, refreshToken, profile, cb) {
   });
 }
 ));
+*/
 
 
 passport.serializeUser((user, done) => {
