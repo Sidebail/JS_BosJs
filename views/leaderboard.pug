@@ -12,9 +12,6 @@ block content
 						th Player Name
 						th High Score
 				tbody
-				each player in player
-
-					tr
-						td player.name
-						td player.level
-						
+				each player in players
+					li
+						h1= player.name

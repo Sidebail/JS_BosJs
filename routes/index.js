@@ -1,5 +1,6 @@
 const Enemy = require('../models/enemy');
 const Player = require('../models/player');
+const Players = require('./controllers/leaderboard');
 var express = require('express');
 var router = express.Router();
 var nickname = "Default";
@@ -49,5 +50,10 @@ router.get('/gameover', function(req,res,next){
                           e3name: enemy3.name, e3maxHealth: enemy3.health, e3attack: enemy3.attack, e3armor: enemy3.armor});
   
 });
+
+
+router.get('/leaderboard', Players.findAllPlayers);
+
+
 
 module.exports = router;
