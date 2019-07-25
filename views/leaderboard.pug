@@ -2,7 +2,7 @@ extends layout
 
 block content
 	.container
-	 if isAuthenticated
+	if isAuthenticated
 		h2 Table
 		.table-responsive
 			table.table
@@ -27,5 +27,5 @@ block content
 						td= player.lastThreeEnemies[0].name
 						td= player.lastThreeEnemies[1].name
 						td= player.lastThreeEnemies[2].name
-	 else
-	 	h2 You have to be logged in to see the leaders, killa-h!
+	else
+		h2 You have to be logged in to see the leaders, killa-h!
