@@ -1,6 +1,6 @@
+var express = require('express');
 const Enemy = require('../models/enemy');
 const Player = require('../models/player');
-var express = require('express');
 var router = express.Router();
 var nickname = "Default";
 var finalscore;
@@ -23,7 +23,7 @@ const requireAuth = (req, res, next) => {
 };
 router.post('*', requireAuth); // Protect ALL POST routes
 
-
+router.use(requireAuth);
 
 // get nickname submission from index
 router.post('/', function(req, res) {
