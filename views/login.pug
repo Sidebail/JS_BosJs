@@ -1,17 +1,13 @@
 extends layout
 
 block content
-  .container
-    h1 #{buttonText} Form
+  .container.text-center
+    h1 Login With Github or Google
 
     a.btn.btn-github(href="/auth/github")
+        i.fa.fa-github
         span.ml-2 Login With Github
 
-    form(method="POST")
-      .form-group
-        label Username
-        input.form-control(name="username" type="text")
-      .form-group
-        label Password
-        input.form-control(name="password" type="password")
-      button.btn.btn-primary(type="submit")= buttonText
+    a.btn.btn-github(href="/auth/google")
+        i.fa.fa-google
+        span.ml-2 Login With Google
