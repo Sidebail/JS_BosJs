@@ -39,6 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/controllers', express.static(path.join(__dirname, "/routes/controllers")));
 app.use('/dist', express.static(path.join(__dirname, "/dist")));
+app.use('/src', express.static(path.join(__dirname, "/src")));
 
 // Express session (provides client-side persistent authentication)
 app.use(

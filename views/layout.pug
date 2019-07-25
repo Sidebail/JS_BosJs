@@ -1,6 +1,10 @@
 doctype html
 html
   head
+  
+    meta(property='og:title', content='BosJS Game')
+    meta(property='vk:image', content='https://pp.vk.me/c629531/v629531034/3172e/xEBYyER1WE4.jpg')
+
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", crossorigin="anonymous")
@@ -8,6 +12,23 @@ html
       #content{
         max-width: 500px;
         margin: auto;
+      }
+      .twitter-share, .facebook-share, .vkontakte-share {
+      background: rgb(29, 161, 242);
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      padding: 1em 2em;
+      -webkit-border-radius: 6px;
+      border-radius: 6px;
+      
+        &:hover {
+          position: relative;
+          top: -1px;
+        }
+      }
+      .facebook-share {
+        background: #3b5998
       }
   body
     include ./partials/nav

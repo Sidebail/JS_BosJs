@@ -1,9 +1,9 @@
 extends layout
 block content
    h1.text-center Hero has been (finally) defeated!
-   h3.text-center= name
+   h3.text-center#name= name
    h3.text-center Your Final Score:
-   h3.text-center= level
+   h3.text-center#level= level
    h3.text-center Your Maximum Health:
    h3.text-center= maxHealth
    h3.text-center Your Attack:
@@ -57,3 +57,10 @@ block content
                        h5.text-center= e3armor
    h6.text-center
        a.nav-link(href='/leaderboard') Are you on the leaderboard?
+   span.twitter-share(data-js='twitter-share') Share on Twitter
+   span.facebook-share(data-js='facebook-share') Share on Facebook
+   span.vkontakte-share#vkShare Share on VKontakte
+   div(class="sharethis-inline-share-buttons")
+    script(src='/src/socials.js') 
+   script(src='https://platform-api.sharethis.com/js/sharethis.js#property=5d38efbd42eb980012755e7c&product=inline-share-buttons')
+
