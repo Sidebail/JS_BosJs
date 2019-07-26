@@ -9,11 +9,11 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const GithubStrategy = require('passport-github').Strategy;
+/*const GithubStrategy = require('passport-github').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
 const VKontakteStrategy = require('passport-vkontakte').Strategy;
-const FacebookStrategy = require('passport-facebook').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;*/
 const User = require('./models/user');
 
 // connect mongoose
@@ -66,7 +66,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 
 //GITHUB AUTHENTICATION
 
-passport.use(
+/*passport.use(
   new GithubStrategy(
     {
       clientID: process.env.CLIENT_ID,
@@ -111,7 +111,7 @@ passport.use(
   )
 );
 
-/*
+
 //Twitter Authentication
 passport.use(new TwitterStrategy({
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
@@ -124,7 +124,7 @@ function(token, tokenSecret, profile, cb) {
   });
 }
 ));
-*/
+
 
 //VKontakte Authentication
 passport.use(new VKontakteStrategy({
@@ -153,7 +153,7 @@ function(accessToken, refreshToken, profile, cb) {
   });
 }
 ));
-
+*/
 
 
 passport.serializeUser((user, done) => {
