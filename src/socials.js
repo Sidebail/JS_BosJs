@@ -26,7 +26,7 @@ var facebookShare = document.querySelector('[data-js="facebook-share"]');
 
 facebookShare.onclick = function(e) {
   e.preventDefault();
-  var facebookWindow = window.open('https://www.facebook.com/sharer/sharer.php?u=' + text, 'facebook-popup', 'height=350,width=600');
+  var facebookWindow = window.open(`https://www.facebook.com/sharer/sharer.php?u=` + encodeURIComponent(`https://bosjs.herokuapp.com/`), 'facebook-popup', 'height=350,width=600');
   if(facebookWindow.focus) { facebookWindow.focus(); }
     return false;
 }
