@@ -31,9 +31,10 @@ body.gameview{
   align-items: center
 }
 
- /* .gameview li {
-  
-}  */
+img {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50px;
+}
 
 .gameview h1#level {
   background-color: var(--header-bg);
@@ -50,7 +51,7 @@ body.gameview{
   background-color: var(--header-bg);
   border-radius: 20px;
   border: 2px solid var(--header-border);
-  padding: 10px;
+  padding: 15px;
 }
 
 .gameview p {
@@ -76,4 +77,38 @@ button#die {
   text-align: center; 
   margin: auto; 
   display: block
+}
+
+
+
+button.atkBtn {
+  background: red;
+  border: 2px solid var(--header-border);
+  padding: 10px;
+  margin: 5px;
+  position: relative;
+}
+
+button.atkBtn::before {
+  content: "";
+  position: absolute;
+  top: 0%!important;
+  /* margin-top: -13px; */
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-left: 2em solid red;
+  right: -1.9em;
+  z-index: 1;
+}
+
+button.atkBtn::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  margin-top: -2px;
+  /* color: rebeccapurple; */
+  border-left: 2.1em solid var(--header-border);
+  right: -2.2em;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
 }
