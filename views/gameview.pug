@@ -1,37 +1,16 @@
 head
     link(href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap",rel="stylesheet")
-    title Defeat Enemies!
-    style.
-        li{
-            background-color: white;
-        }
-        body {
-            /* The image used */
-            background-image: url("https://img.itch.zone/aW1hZ2UvMzQyNjAwLzE2OTg4MzEucG5n/original/DOT1NH.png");
-
-            /* Full height */
-            height: 100%; 
-
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            font-family: 'Press Start 2P', cursive;
-            
-        }
-
-        html { 
-            background-color: yellow;
-        }
-body#content
-    div(style="margin-left: auto; margin-right: auto; align-items: center")
-        h1#level(style="background-color: white; text-align: center;")
-        table(style="margin: auto;")
+    link(rel='stylesheet', href='/stylesheets/gameviewStyles.css')
+    title Defeat Enemies!  
+body#content.gameview
+    div
+        h1#level
+        table
             tr 
                 th
                     ul
                         li
-                            h1#pName= playerName
+                            h1#pName.medium-header= playerName
                         li
                             p#pHealth 
                         li
@@ -59,7 +38,7 @@ body#content
                 th
                     ul
                         li
-                            h1#eName
+                            h1#eName.medium-header
                         li
                             p#eHealth
                         li
@@ -76,8 +55,8 @@ body#content
                             button(class="btn btn-primary",hidden='hidden')#drop2
                         li
                             button(class="btn btn-primary", hidden='hidden')#drop3 
-        textarea#gameText(readonly='', rows='10', cols='75', style="text-align: center; width: 100%;")
-        button(class="btn btn-primary", style="text-align: center; margin: auto; display: block")#die SURRENDER!?
+        textarea#gameText(readonly='', rows='10', cols='75')
+        button(class="btn btn-primary")#die SURRENDER!?
         form(type="hidden" method="post")
             input(type="hidden" name="name" id="nameform")
             input(type="hidden" name="level" id="levelform")

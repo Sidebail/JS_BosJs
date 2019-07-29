@@ -1,0 +1,79 @@
+/* Header background color from https://encycolorpedia.com/f2eecb */
+
+/* color variables */
+:root {
+  --header-bg: #f2eecb; /* little greene old paper */
+  --header-border: #ad6f69 ; /* copper penny */
+}
+
+html { 
+  background-color: #5d5b5b ;
+}
+
+body.gameview{
+  padding: 0px;
+  /* The image used */
+  background-image: url("https://img.itch.zone/aW1hZ2UvMzQyNjAwLzE2OTg4MzEucG5n/original/DOT1NH.png");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.gameview div {
+  margin-left: auto; 
+  margin-right: auto; 
+  align-items: center
+}
+
+ /* .gameview li {
+  
+}  */
+
+.gameview h1#level {
+  background-color: var(--header-bg);
+  text-align: center;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 0px;
+  border-radius: 20px;
+  border: 5px solid var(--header-border);
+}
+
+.medium-header {
+  background-color: var(--header-bg);
+  border-radius: 20px;
+  border: 2px solid var(--header-border);
+  padding: 10px;
+}
+
+.gameview p {
+  background-color: var(--header-bg);
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.gameview table {
+  margin: auto;
+}
+
+.gameview ul {
+  list-style-type: none;
+}
+
+#gametext {
+  text-align: center; 
+  width: 100%;
+}
+
+button#die {
+  text-align: center; 
+  margin: auto; 
+  display: block
+}
