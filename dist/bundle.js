@@ -125,11 +125,11 @@ var tier3Prefixes = [`Warchief`,`Captain`,`Pirate`,`Wizard`,`Smart`]
 var tier4Prefixes = [`Elder`,`Ancient`,`Centurion`,`King`,`Vengeful`]
 var tier5Prefixes = [`Unstoppable`,`Invincible`,`Godlike`,`Magnificent`,`Super-duper`]
 
-var healthMaxMins = [[3,10,25,55,80],[5,15,40,70,100]];
-var attackMaxMins = [[1,2,6,18,30],[2,4,12,26,50]];
+var healthMaxMins = [[2,10,20,55,80],[5,15,40,70,120]];
+var attackMaxMins = [[1,3,6,18,30],[1,6,12,26,50]];
 
-var healthDrops = [[2,4,6,10,15],[5,7,14,20,30]];
-var attackDrops = [[1,3,8,11,16],[3,5,10,15,20]];
+var healthDrops = [[2,3,6,14,15],[5,4,10,20,30]];
+var attackDrops = [[1,2,5,10,14],[3,4,8,12,20]];
 var armorDrops = [[1,1,1,3,5],[1,2,3,5,8]];
 var typesDrops = ['health','attack','armor'];
 
@@ -164,15 +164,21 @@ var enemyModel = {
     },
 
     makeStats: function(){
-       this.health = Math.floor(Math.random() * (healthMaxMins[1][tier-1] - healthMaxMins[0][tier-1])) + healthMaxMins[0][tier-1];
-       this.maxHealth = this.health;
-       this.attack = Math.floor(Math.random() * (attackMaxMins[1][tier-1] - attackMaxMins[0][tier-1])) + attackMaxMins[0][tier-1];
-       //console.log(healthMaxMins[tier-1][0] + " " + healthMaxMins[tier-1][1]);
+        if(playerChraracter.level >= 55){
+            this.health = Math.floor(Math.random() * (healthMaxMins[1][tier-1] - healthMaxMins[0][tier-1])) + healthMaxMins[0][tier-1] + playerChraracter.maxHealth - playerChraracter.level;
+            this.maxHealth = this.health;
+            this.attack = Math.floor(Math.random() * (attackMaxMins[1][tier-1] - attackMaxMins[0][tier-1])) + attackMaxMins[0][tier-1] + playerChraracter.maxHealth - playerChraracter.level;
+        }else{
+            this.health = Math.floor(Math.random() * (healthMaxMins[1][tier-1] - healthMaxMins[0][tier-1])) + healthMaxMins[0][tier-1];
+            this.maxHealth = this.health;
+            this.attack = Math.floor(Math.random() * (attackMaxMins[1][tier-1] - attackMaxMins[0][tier-1])) + attackMaxMins[0][tier-1];
+            //console.log(healthMaxMins[tier-1][0] + " " + healthMaxMins[tier-1][1]);
+        }
        if(this.tier>2){
-           this.armor = Math.floor(Math.random() * ((tier + 5) - (tier - 3)) + (tier - 3));
-       }else{
-           this.armor = 0;
-       }
+            this.armor = Math.floor(Math.random() * ((tier + 5) - (tier - 3)) + (tier - 3));
+        }else{
+            this.armor = 0;
+        }
        
     },
 
