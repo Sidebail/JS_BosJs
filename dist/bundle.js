@@ -507,7 +507,6 @@ newRound = function(){
 updateScene = function(){
   console.log('UPDATING SCENE!');
   levelCounter.textContent = `Level ${playerChraracter.level}`;
-  scoreCounter.textContent = `Score: ${playerChraracter.score}`;
   pName.textContent = playerChraracter.name;
   pHealth.textContent = `Health: ${playerChraracter.health}/${playerChraracter.maxHealth}`
   pAttack.textContent = `Attack: ${playerChraracter.attack}`;

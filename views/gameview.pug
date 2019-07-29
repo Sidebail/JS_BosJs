@@ -24,83 +24,83 @@ head
             background-color: yellow;
         }
 body#content
-    h1#level(style="background-color: white;")
-    h3#score(style="background-color: white;" ) 
-    table
-        tr 
-            th
-                ul
-                    li
-                        h1#pName= playerName
-                    li
-                        p#pHealth 
-                    li
-                        img(src="https://i.ibb.co/4N4kRhG/hero.gif",width="256px", height="256px", alt="placeholder")#pPicture
-                    li
-                        p#pAttack
-                    li
-                        p#pArmor            
-            td 
-                ul
-                    li
-                        button(class="btn btn-primary")#defHead Defend Head
-                    li
-                        button(class="btn btn-primary")#defTorso Defend Torso
-                    li
-                        button(class="btn btn-primary")#defLegs Defend Legs
-            td 
-                ul
-                    li
-                        button(class="btn btn-primary")#atHead Attack Head
-                    li
-                        button(class="btn btn-primary")#atTorso Attack Torso
-                    li
-                        button(class="btn btn-primary")#atLegs Attack Legs 
-            th
-                ul
-                    li
-                        h1#eName
-                    li
-                        p#eHealth
-                    li
-                        img(src="https://www.gamedevmarket.net/wp-content/uploads/df40ac67288c750b6c22fc915450925737e9dbfb.gif", width="256px", height="256px", alt="placeholder")#ePicture
-                    li
-                        p#eAttack
-                    li
-                        p#eArmor
-            td 
-                ul
-                    li
-                        button(class="btn btn-primary",hidden='hidden')#drop1
-                    li
-                        button(class="btn btn-primary",hidden='hidden')#drop2
-                    li
-                        button(class="btn btn-primary", hidden='hidden')#drop3 
-    button(class="btn btn-primary")#die Die lol
-    textarea#gameText(readonly='', rows='10', cols='75')
-    form(type="hidden" method="post")
-     input(type="hidden" name="name" id="nameform")
-     input(type="hidden" name="level" id="levelform")
-     input(type="hidden" name="maxHealth" id="maxHealthform")
-     input(type="hidden" name="attack" id="attackform")
-     input(type="hidden" name="armor" id="armorform")
+    div(style="margin-left: auto; margin-right: auto; align-items: center")
+        h1#level(style="background-color: white; text-align: center;")
+        table(style="margin: auto;")
+            tr 
+                th
+                    ul
+                        li
+                            h1#pName= playerName
+                        li
+                            p#pHealth 
+                        li
+                            img(src="https://i.ibb.co/4N4kRhG/hero.gif",width="256px", height="256px", alt="placeholder")#pPicture
+                        li
+                            p#pAttack
+                        li
+                            p#pArmor            
+                td 
+                    ul
+                        li
+                            button(class="btn btn-primary")#defHead Defend Head
+                        li
+                            button(class="btn btn-primary")#defTorso Defend Torso
+                        li
+                            button(class="btn btn-primary")#defLegs Defend Legs
+                td 
+                    ul
+                        li
+                            button(class="btn btn-primary")#atHead Attack Head
+                        li
+                            button(class="btn btn-primary")#atTorso Attack Torso
+                        li
+                            button(class="btn btn-primary")#atLegs Attack Legs 
+                th
+                    ul
+                        li
+                            h1#eName
+                        li
+                            p#eHealth
+                        li
+                            img(src="https://www.gamedevmarket.net/wp-content/uploads/df40ac67288c750b6c22fc915450925737e9dbfb.gif", width="256px", height="256px", alt="placeholder")#ePicture
+                        li
+                            p#eAttack
+                        li
+                            p#eArmor
+                td 
+                    ul
+                        li
+                            button(class="btn btn-primary",hidden='hidden')#drop1
+                        li
+                            button(class="btn btn-primary",hidden='hidden')#drop2
+                        li
+                            button(class="btn btn-primary", hidden='hidden')#drop3 
+        textarea#gameText(readonly='', rows='10', cols='75', style="text-align: center; width: 100%;")
+        button(class="btn btn-primary", style="text-align: center; margin: auto; display: block")#die SURRENDER!?
+        form(type="hidden" method="post")
+            input(type="hidden" name="name" id="nameform")
+            input(type="hidden" name="level" id="levelform")
+            input(type="hidden" name="maxHealth" id="maxHealthform")
+            input(type="hidden" name="attack" id="attackform")
+            input(type="hidden" name="armor" id="armorform")
 
-     input(type="hidden" name="e1name" id="e1nameform" value="")
-     input(type="hidden" name="e1maxHealth" id="e1maxHealthform" value="")
-     input(type="hidden" name="e1attack" id="e1attackform" value="")
-     input(type="hidden" name="e1armor" id="e1armorform" value="")
+            input(type="hidden" name="e1name" id="e1nameform" value="")
+            input(type="hidden" name="e1maxHealth" id="e1maxHealthform" value="")
+            input(type="hidden" name="e1attack" id="e1attackform" value="")
+            input(type="hidden" name="e1armor" id="e1armorform" value="")
 
-     input(type="hidden" name="e2name" id="e2nameform" value="")
-     input(type="hidden" name="e2maxHealth" id="e2maxHealthform" value="")
-     input(type="hidden" name="e2attack" id="e2attackform" value="")
-     input(type="hidden" name="e2armor" id="e2armorform" value="")
+            input(type="hidden" name="e2name" id="e2nameform" value="")
+            input(type="hidden" name="e2maxHealth" id="e2maxHealthform" value="")
+            input(type="hidden" name="e2attack" id="e2attackform" value="")
+            input(type="hidden" name="e2armor" id="e2armorform" value="")
 
-     input(type="hidden" name="e3name" id="e3nameform" value="")
-     input(type="hidden" name="e3maxHealth" id="e3maxHealthform" value="")
-     input(type="hidden" name="e3attack" id="e3attackform" value="")
-     input(type="hidden" name="e3armor" id="e3armorform" value="")
-     
-     input(type="submit" style="display:none" id="submitScore")
+            input(type="hidden" name="e3name" id="e3nameform" value="")
+            input(type="hidden" name="e3maxHealth" id="e3maxHealthform" value="")
+            input(type="hidden" name="e3attack" id="e3attackform" value="")
+            input(type="hidden" name="e3armor" id="e3armorform" value="")
+            
+            input(type="submit" style="display:none" id="submitScore")
 script(src='/dist/bundle.js')     
 
     

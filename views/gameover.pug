@@ -1,7 +1,7 @@
 extends layout
 block content
    h1.text-center Hero has been (finally) defeated!
-   h3.text-center#pname= name
+   h1.text-center#pname= name
    h3.text-center Your Final Score:
    h3.text-center#level= level
    h3.text-center Your Maximum Health:
@@ -14,7 +14,7 @@ block content
     h3.text-center You didn't defeat a single one?! C'mon!
    else
     h3.text-center Last 3 defeated enemies:
-   table
+   table(style="margin: auto")
        tr
            td
             if e1name !== ""
@@ -56,12 +56,22 @@ block content
                        h5 Armor
                        h5.text-center= e3armor
    div.text-center
-       a.nav-link(href='/leaderboard', class="btn btn-primary") Check yourself on leaderboard!
-       a.nav-link(href='/gameview', class="btn btn-primary") Play Again!
-   span.twitter-share(data-js='twitter-share') Share on Twitter
-   span.facebook-share(data-js='facebook-share') Share on Facebook
-   span.vkontakte-share#vkShare Share on VKontakte
-   div(class="sharethis-inline-share-buttons")
-    script(src='/src/socials.js') 
+       a.nav-link(href='/leaderboard', class="btn btn-primary", style="margin: 1px") Check yourself on leaderboard!
+       a.nav-link(href='/gameview', class="btn btn-primary", style="margin: 1px") Play Again!
+   table(style="margin: auto")
+        tr
+            td.twitter-share
+                i.fa.fa-twitter(style="margin-right: 5px")
+                span(data-js='twitter-share') Share on Twitter
+            td.facebook-share
+                i.fa.fa-facebook(style="margin-right: 5px")
+                span(data-js='facebook-share') Share on Facebook
+            td.vkontakte-share
+                i.fa.fa-vk(style="margin-right: 5px")
+                span#vkShare Share on VKontakte 
+   footer.footer.top-buffer(style="position: relative")
+       .footer-copyright.text-center 
+           p &copy; Vladimir Vatsurin, Ian Blanchette, Nathaniel Fisher
+   script(src='/src/socials.js') 
    script(src='https://platform-api.sharethis.com/js/sharethis.js#property=5d38efbd42eb980012755e7c&product=inline-share-buttons')
 
