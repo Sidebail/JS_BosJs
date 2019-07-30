@@ -74,7 +74,7 @@ var playerChraracter = {
     health: 10,
     maxHealth: 10,
     attack: 1,
-    armor: 0,
+    armor: 1,
     level: 0,
     takenDamage: 0, 
     score: 0,
