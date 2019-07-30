@@ -23,6 +23,7 @@ body.gameview{
   background-repeat: no-repeat;
   background-size: cover;
   font-family: 'Press Start 2P', cursive;
+  margin: 0px 8px;
 }
 
 .gameview div {
@@ -40,9 +41,8 @@ img {
   background-color: var(--header-bg);
   text-align: center;
   width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 20px 0px;
+  margin: 0px auto 15px;
+  padding: 15px 0px;
   border-radius: 20px;
   border: 5px solid var(--header-border);
 }
@@ -51,13 +51,13 @@ img {
   background-color: var(--header-bg);
   border-radius: 20px;
   border: 2px solid var(--header-border);
-  padding: 15px;
+  padding: 10px;
 }
 
 .gameview p {
   background-color: var(--header-bg);
   border-radius: 20px;
-  padding: 5px;
+  padding: 2px;
 }
 
 .gameview table {
@@ -76,12 +76,28 @@ img {
 button#die {
   text-align: center; 
   margin: auto; 
-  display: block
+  display: block;
+  background: red;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 5px auto;
 }
 
+#gametext {
+  background: var(--header-bg);
+  border-top: 5px solid var(--header-border);
+}
 
+button.dfBtn {
+  color: white;
+  background: blue;
+  border: 2px solid #529096; /* inversion of coppy penny (--header-border color) */
+  padding: 10px;
+  margin: 5px;
+}
 
 button.atkBtn {
+  color: white;
   background: red;
   border: 2px solid var(--header-border);
   padding: 10px;
@@ -111,4 +127,11 @@ button.atkBtn::after {
   right: -2.2em;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
+}
+
+.drop {
+  margin: 5px;
+  border-radius: 100%;
+  padding: 20px 5px;
+  border: 0px;
 }

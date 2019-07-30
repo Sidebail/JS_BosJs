@@ -63,7 +63,7 @@ app.use((req, res, next) => {
 
 passport.use(new LocalStrategy(User.authenticate()));
 
-
+/*
 //GITHUB AUTHENTICATION
 
 passport.use(
@@ -88,7 +88,7 @@ passport.use(
 );
 
 //Google Authentication
-/*
+
 passport.use(
   new GoogleStrategy(
     {
@@ -110,7 +110,7 @@ passport.use(
     }
   )
 );
-*/
+
 /*
 //Twitter Authentication
 passport.use(new TwitterStrategy({
@@ -153,8 +153,8 @@ function(accessToken, refreshToken, profile, cb) {
   });
 }
 ));
-*/
 
+*/
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
