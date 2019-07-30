@@ -1,0 +1,114 @@
+/* Header background color from https://encycolorpedia.com/f2eecb */
+
+/* color variables */
+:root {
+  --header-bg: #f2eecb; /* little greene old paper */
+  --header-border: #ad6f69 ; /* copper penny */
+}
+
+html { 
+  background-color: #5d5b5b ;
+}
+
+body.gameview{
+  padding: 0px;
+  /* The image used */
+  background-image: url("https://img.itch.zone/aW1hZ2UvMzQyNjAwLzE2OTg4MzEucG5n/original/DOT1NH.png");
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.gameview div {
+  margin-left: auto; 
+  margin-right: auto; 
+  align-items: center
+}
+
+img {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50px;
+}
+
+.gameview h1#level {
+  background-color: var(--header-bg);
+  text-align: center;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 0px;
+  border-radius: 20px;
+  border: 5px solid var(--header-border);
+}
+
+.medium-header {
+  background-color: var(--header-bg);
+  border-radius: 20px;
+  border: 2px solid var(--header-border);
+  padding: 15px;
+}
+
+.gameview p {
+  background-color: var(--header-bg);
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.gameview table {
+  margin: auto;
+}
+
+.gameview ul {
+  list-style-type: none;
+}
+
+#gametext {
+  text-align: center; 
+  width: 100%;
+}
+
+button#die {
+  text-align: center; 
+  margin: auto; 
+  display: block
+}
+
+
+
+button.atkBtn {
+  background: red;
+  border: 2px solid var(--header-border);
+  padding: 10px;
+  margin: 5px;
+  position: relative;
+}
+
+button.atkBtn::before {
+  content: "";
+  position: absolute;
+  top: 0%!important;
+  /* margin-top: -13px; */
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-left: 2em solid red;
+  right: -1.9em;
+  z-index: 1;
+}
+
+button.atkBtn::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  margin-top: -2px;
+  /* color: rebeccapurple; */
+  border-left: 2.1em solid var(--header-border);
+  right: -2.2em;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+}
