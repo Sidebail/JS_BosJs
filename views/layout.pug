@@ -1,16 +1,69 @@
 doctype html
 html
   head
+
+    meta(property='og:title', content='BosJS Game')
+    meta(property='vk:image', content='https://euler.com/wp-content/uploads/2018/02/JavaScript-Course-Euler-Training-Center.png')
+
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
     link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T", crossorigin="anonymous")
+    link(href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Aldrich&display=swap" rel="stylesheet")
     style.
       #content{
         max-width: 500px;
         margin: auto;
+        font-family: 'Press Start 2P', cursive;
+      }
+      .twitter-share, .facebook-share, .vkontakte-share {
+      background: rgb(29, 161, 242);
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      padding: 1em 2em;
+      -webkit-border-radius: 6px;
+      border-radius: 6px;
+      margin: 1px;
+        &:hover {
+          position: relative;
+          top: -1px;
+        }
+      }
+      .facebook-share {
+        background: #3b5998;
+        
+      }
+      body{
+        height: 100%;
+        padding: 0;
+        font-family: 'Aldrich';
+      }
+      #page-container {
+        position: relative;
+        min-height: 100vh;
+      }
+
+      #content-wrap {
+        padding-bottom: 2.5rem;    /* Footer height */
+      }
+
+      footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2.5rem;            /* Footer height */
+        
       }
   body
     include ./partials/nav
-    block content
-    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", crossorigin="anonymous")
+    div#page-containter
+      div#content-wrap
+        block content
+    
+      
+  script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
+  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
     

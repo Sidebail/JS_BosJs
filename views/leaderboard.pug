@@ -2,18 +2,41 @@ extends layout
 
 block content
 	.container
-		h2 Table
+	if isAuthenticated
+		h2.text-center 100 Best Boss-Killers!
 		.table-responsive
 			table.table
 				thead
 					tr
 						th #
-						th Username
-						th Player Name
-						th High Score
+						th Name
+						th Level
+						th Health
+						th Attack
+						th Enemy Name 1
+						th Enemy Name 2
+						th Enemy Name 3
 				tbody
+				each player, index in players
 					tr
-						td 1
-						td Test
-						td Player Test
-						td 35
+						td= index + 1
+						td= player.name
+						td= player.level
+						td= player.health
+						td= player.attack
+						td= player.lastThreeEnemies[0].name
+						td= player.lastThreeEnemies[1].name
+						td= player.lastThreeEnemies[2].name
+			h3.text-center Didn't find yourself? Try better and compete for the 1st place!
+		footer.footer.top-buffer(style="position: relative")
+			.footer-copyright.text-center 
+				a(href="https://www.linkedin.com/in/vladimir-vatsurin/") &copy; Vladimir "AscotBailey-2" Vatsurin, 
+				a(href="https://www.linkedin.com/in/ian-blanchette/") Ian Blanchette, 
+				a(href="https://www.linkedin.com/in/nathaniel-fisher/") Nathaniel Fisher
+	else
+		h1.text-center You have to be logged in to see the leaders, killa-h!	
+		footer.footer.top-buffer
+			.footer-copyright.text-center 
+				a(href="https://www.linkedin.com/in/vladimir-vatsurin/") &copy; Vladimir "AscotBailey-2" Vatsurin, 
+				a(href="https://www.linkedin.com/in/ian-blanchette/") Ian Blanchette, 
+				a(href="https://www.linkedin.com/in/nathaniel-fisher/") Nathaniel Fisher

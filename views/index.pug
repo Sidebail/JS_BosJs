@@ -1,8 +1,36 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  p Input yout nickname:
-  input(type="text" name="nickname")
-  a(href="/gameview" class="btn btn-primary") Play Game
+	div.container.text-center
+		h1 Welcome to #{title}
+		p Input yout nickname:
+		// turn into form with post method
+		form(method="post")
+			input(type="text" name="nickname")
+			p
+			button(class="btn btn-primary") Play Game
+		#tutorial
+			p BosJS is a little JavaScript written game, where you, as a hero, have to fight numerous bosses and upgrade yourself!
+			p
+			a  Each battle consists of two repetitive phases: attack and defence. 
+			a  While attacking, try to guess what part of the boss to attack and not hit the defended part, which is chosen randomly by the boss.
+			a  While defending, try to predict what part boss is about to attack, so you will defend it and ignore the damage
+			p
+			a  You and bosses have 3 stats - Health, Attack and Armor
+			a  If boss'es health goes down to zero, you will progress to the new level and choose one of three random upgrades, that will increase your stats.
+			p  The more health you have, the more damage you can sustain. The more attack you have, the more damage you can deal with each hit. The more armor you have, the less damage you recieve, when enemy hits you.
+			a  Keep in mind, that bosses have stats as well and they will do their best to defeat you!
+			p 
+			a  Going further through the game, bosses will grow in stats and will be much more dangerous.
+			a  With right decisions and a bit of luck, your hero is about to challenge evil magical bosses and make his way through the number of regions,
+			a  ending with the most challenging one - The Hell!
+			p
+			a  Fight as more bosses as you can and make it to the top of the leaderboard!
+			p
+			a(href="https://github.com/Sidebail/JS_BosJs/wiki") For more information, check out the wiki!
+			p
+	footer.footer.top-buffer(style="position: relative;")
+		.footer-copyright.text-center 
+			a(href="https://www.linkedin.com/in/vladimir-vatsurin/") &copy; Vladimir "AscotBailey-2" Vatsurin, 
+			a(href="https://www.linkedin.com/in/ian-blanchette/") Ian Blanchette, 
+			a(href="https://www.linkedin.com/in/nathaniel-fisher/") Nathaniel Fisher
