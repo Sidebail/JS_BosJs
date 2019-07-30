@@ -124,7 +124,7 @@ function(token, tokenSecret, profile, cb) {
   });
 }
 ));
-
+*/
 
 //VKontakte Authentication
 passport.use(new VKontakteStrategy({
@@ -153,6 +153,7 @@ function(accessToken, refreshToken, profile, cb) {
   });
 }
 ));
+
 
 */
 
