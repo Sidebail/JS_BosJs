@@ -62,7 +62,7 @@ Rogue like rps boss fight game, written on NodeJS.
    - Player can share his achievements in Twitter!
    
 # Development requirements:
- * Views
+ * Views (WIREFRAME - https://github.com/Sidebail/JS_BosJs/wiki/Wireframe)
   - Main Menu page
       - Login with Google/Twitter option
       - !Custom nickname!
