@@ -70,7 +70,7 @@ const bgArray = [
 
 /* Creating the player object. THIS SHOULD BE GETTING THE NICKNAME FROM INITIAL INPUT! */
 var playerChraracter = {
-    name: (pName.textContent == "") ? "Tester" : pName.textContent,
+    name: (pName.textContent == "") ? "Stranger" : pName.textContent,
     health: 10,
     maxHealth: 10,
     attack: 1,
@@ -131,7 +131,7 @@ var attackMaxMins = [[1,3,6,18,30],[1,6,12,26,50]];
 var healthDrops = [[2,3,6,14,15],[5,4,10,20,30]];
 var attackDrops = [[1,2,5,10,14],[3,4,8,12,20]];
 var armorDrops = [[1,1,1,3,5],[1,2,3,5,8]];
-var typesDrops = ['health','attack','armor'];
+var typesDrops = ['Health','Attack','Armor'];
 
 //Name is setted randomly
 // Tier 1 doesnt have prefix
@@ -208,9 +208,15 @@ var dropModel1 = {
     generateDrop: function(){
         this.typeString = typesDrops[Math.floor(Math.random()*typesDrops.length)];
         switch(this.typeString){
-            case 'health': this.upgradeValue = Math.floor(Math.random() * (healthDrops[1][tier-1] - healthDrops[0][tier-1])) + healthDrops[0][tier-1]; break;
-            case 'attack': this.upgradeValue = Math.floor(Math.random() * (attackDrops[1][tier-1] - attackDrops[0][tier-1])) + attackDrops[0][tier-1]; break;
-            case 'armor': this.upgradeValue = Math.floor(Math.random() * (armorDrops[1][tier-1] - armorDrops[0][tier-1])) + armorDrops[0][tier-1]; break;
+            case 'Health':  this.upgradeValue = Math.floor(Math.random() * (healthDrops[1][tier-1] - healthDrops[0][tier-1])) + healthDrops[0][tier-1];
+                            drop1.style.backgroundColor = "rgb(145, 255, 120)";
+                            break;
+            case 'Attack':  this.upgradeValue = Math.floor(Math.random() * (attackDrops[1][tier-1] - attackDrops[0][tier-1])) + attackDrops[0][tier-1]; 
+                            drop1.style.backgroundColor = "rgb(255, 117, 129)";
+                            break;
+            case 'Armor':   this.upgradeValue = Math.floor(Math.random() * (armorDrops[1][tier-1] - armorDrops[0][tier-1])) + armorDrops[0][tier-1];
+                            drop1.style.backgroundColor = "rgb(133, 188, 255)";
+                            break;
         }
     }
 }
@@ -220,9 +226,15 @@ var dropModel2 = {
     generateDrop: function(){
         this.typeString = typesDrops[Math.floor(Math.random()*typesDrops.length)];
         switch(this.typeString){
-            case 'health': this.upgradeValue = Math.floor(Math.random() * (healthDrops[1][tier-1] - healthDrops[0][tier-1])) + healthDrops[0][tier-1]; break;
-            case 'attack': this.upgradeValue = Math.floor(Math.random() * (attackDrops[1][tier-1] - attackDrops[0][tier-1])) + attackDrops[0][tier-1]; break;
-            case 'armor': this.upgradeValue = Math.floor(Math.random() * (armorDrops[1][tier-1] - armorDrops[0][tier-1])) + armorDrops[0][tier-1]; break;
+            case 'Health':  this.upgradeValue = Math.floor(Math.random() * (healthDrops[1][tier-1] - healthDrops[0][tier-1])) + healthDrops[0][tier-1];
+                            drop2.style.backgroundColor = "rgb(145, 255, 120)"; 
+                            break;
+            case 'Attack':  this.upgradeValue = Math.floor(Math.random() * (attackDrops[1][tier-1] - attackDrops[0][tier-1])) + attackDrops[0][tier-1]; 
+                            drop2.style.backgroundColor = "rgb(255, 117, 129)";  
+                            break;
+            case 'Armor': this.upgradeValue = Math.floor(Math.random() * (armorDrops[1][tier-1] - armorDrops[0][tier-1])) + armorDrops[0][tier-1];
+                            drop2.style.backgroundColor = "rgb(133, 188, 255)";
+                            break;
         }
     }
 }
@@ -232,10 +244,15 @@ var dropModel3 = {
     generateDrop: function(){
         this.typeString = typesDrops[Math.floor(Math.random()*typesDrops.length)];
         switch(this.typeString){
-            case 'health': this.upgradeValue = Math.floor(Math.random() * (healthDrops[1][tier-1] - healthDrops[0][tier-1])) + healthDrops[0][tier-1]; break;
-            case 'attack': this.upgradeValue = Math.floor(Math.random() * (attackDrops[1][tier-1] - attackDrops[0][tier-1])) + attackDrops[0][tier-1]; break;
-            case 'armor': this.upgradeValue = Math.floor(Math.random() * (armorDrops[1][tier-1] - armorDrops[0][tier-1])) + armorDrops[0][tier-1]; break;
-        }
+            case 'Health':  this.upgradeValue = Math.floor(Math.random() * (healthDrops[1][tier-1] - healthDrops[0][tier-1])) + healthDrops[0][tier-1];
+                            drop3.style.backgroundColor = "rgb(145, 255, 120)"; 
+                            break;
+            case 'Attack':  this.upgradeValue = Math.floor(Math.random() * (attackDrops[1][tier-1] - attackDrops[0][tier-1])) + attackDrops[0][tier-1]; 
+                            drop3.style.backgroundColor = "rgb(255, 117, 129)";  
+                            break;
+            case 'Armor': this.upgradeValue = Math.floor(Math.random() * (armorDrops[1][tier-1] - armorDrops[0][tier-1])) + armorDrops[0][tier-1];
+                            drop3.style.backgroundColor = "rgb(133, 188, 255)";
+                            break;       }
     }
 }
 var drops = [dropModel1,dropModel2,dropModel3];

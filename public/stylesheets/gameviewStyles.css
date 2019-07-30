@@ -96,6 +96,12 @@ button.dfBtn {
   margin: 5px;
 }
 
+button.dfBtn:disabled,
+button.dfBtn[disabled]{
+  background:rgba(3, 28, 252, 0.2);
+  color: rgba(255,255,255, 0.2);
+}
+
 button.atkBtn {
   color: white;
   background: red;
@@ -128,6 +134,13 @@ button.atkBtn::after {
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
 }
+
+button.atkBtn:disabled,
+button.atkBtn[disabled]{
+  background:rgba(252, 3, 28, 0.2);
+  color: rgba(255,255,255, 0.2);
+}
+
 
 .drop {
   margin: 5px;
