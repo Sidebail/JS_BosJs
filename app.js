@@ -63,7 +63,7 @@ app.use((req, res, next) => {
 
 passport.use(new LocalStrategy(User.authenticate()));
 
-/*
+
 //GITHUB AUTHENTICATION
 
 passport.use(
@@ -155,7 +155,7 @@ function(accessToken, refreshToken, profile, cb) {
 ));
 
 
-*/
+
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
