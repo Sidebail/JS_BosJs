@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+/*
+    Filename - enemy.js
+    File collaborators - Vladimir Vatsurin, Nathaniel Fischer
+    File description - Enemy's model, prepared for the MongoDB
+
+*/
+
 // var enemyNames = [`Orc`, `Elf`, `Thief`, `Skeleton`, `Dragon`];
 // var tier2Prefixes = [`Slick`, `Big`,`Old`,`Noob`,`Recruit`,`Half-dead`]
 // var tier3Prefixes = [`Warchief`,`Captain`,`Pirate`,`Wizard`,`Smart`]
@@ -18,7 +25,7 @@ const enemySchema = new Schema({
     name: String,
     health: Number,
     attack: Number,
-    armor: Number,
+    armor: Number
     // tier: Number,
     // //pierce: Number,
 

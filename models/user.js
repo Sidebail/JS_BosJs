@@ -4,6 +4,13 @@ const findorcreate = require('mongoose-findorcreate');
 const passportLocalMongoose = require('passport-local-mongoose');
 //const Enemy = require('./enemy');
 
+/*
+    Filename - enemy.js
+    File collaborators - Vladimir Vatsurin, Ian Blanchette
+    File description - User's model, prepared for the MongoDB
+
+*/
+
 const userSchema = new Schema({
   username: String,
   password: String,

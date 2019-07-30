@@ -80,9 +80,7 @@ var playerChraracter = {
     increaseLevel: function(){
         this.level++;
     }
-    increaseScore: function(score){
-        this.score = score++;
-    }
+    
 }
 
 /* ENEMY LOGIC STARTS HERE */

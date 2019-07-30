@@ -1,3 +1,11 @@
+/*
+    Filename - auth.js
+    File collaborators - Vladimir Vatsurin, Ian BLanchette
+    File description - Authentication handler, adapted for 
+                        Google, GitHub, Facebook and VKontakte
+
+*/
+
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");

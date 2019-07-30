@@ -1,3 +1,10 @@
+/*
+    Filename - users.js
+    File collaborators - Ian Blanchette
+    File description - Users getter
+
+*/
+
 var express = require('express');
 var router = express.Router();
 

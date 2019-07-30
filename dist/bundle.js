@@ -1,4 +1,12 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+/*
+    Filename - bundle.js
+    File collaborators - Vladimir Vatsurin, Nathaniel Fischer
+    File description -  Game's core logic, which is running on the client side
+                        Adapted from main.js by browserfy
+
+*/
+
 //Declaring the elements
 const levelCounter = document.getElementById('level');
 const scoreCounter = document.getElementById('score');
@@ -99,9 +107,9 @@ var playerChraracter = {
     
     increaseStatistic: function(stringInput, value){
         switch(stringInput){
-            case `health`: this.health = this.health + value; this.maxHealth = this.maxHealth + value; break;
-            case `attack`: this.attack = this.attack + value; break;
-            case `armor`: this.armor = this.armor + value; break;
+            case `Health`: this.health = this.health + value; this.maxHealth = this.maxHealth + value; break;
+            case `Attack`: this.attack = this.attack + value; break;
+            case `Armor`: this.armor = this.armor + value; break;
             default: console.log(`ERROR: player.js->increaseStatistic(${stringInput},${value})`); break;
         }
     },
@@ -260,10 +268,12 @@ var drops = [dropModel1,dropModel2,dropModel3];
 var enemyDefendedPos;
 var enemyAttackPos;
 var positions = ["head","torso","legs"];
+// Function that chooses what part enemy would defend
 enemyDefend = function(){
 //var item = items[Math.floor(Math.random()*items.length)];
     enemyDefendedPos = positions[Math.floor(Math.random()*positions.length)];
 }
+// Function that chooses what part enemy would attack
 enemyAttack = function(){
     enemyAttackPos = positions[Math.floor(Math.random()*positions.length)];
 }
@@ -393,6 +403,7 @@ switchToAttack = function(){
     checkHealth();
 }
 
+// DEPRECATED
 increaseScore = function(score)
 {
     switch(enemyModel.tier){
@@ -406,6 +417,7 @@ increaseScore = function(score)
 
 }
 
+// Checking the health and triggering deaths if one of the healths is below zero
 checkHealth = function(){
     //updateGameText(`Enemy's defence choise ${enemyDefendedPos}`);
     //updateGameText(`Enemy's attack choice ${enemyAttackPos}`);
@@ -482,13 +494,14 @@ checkHealth = function(){
        //window.open("/gameover", score=`${playerChraracter.score}`);
     }
 }
-
+// Disabling drops buttons, hiding them
 disableDrops = function(){
     drop1.hidden = true;
     drop2.hidden = true;
     drop3.hidden = true;
 }
 
+// Enabling frops buttons and generating drops, accoring to the current tier
 enableDrops = function(){
     atHead.disabled = true;
     atTorso.disabled = true;
@@ -542,5 +555,6 @@ updateScene = function(){
   ePicture.src = enemyModel.animIdle;
 }
 
+// Starting the game
 newRound();
 },{}]},{},[1]);
