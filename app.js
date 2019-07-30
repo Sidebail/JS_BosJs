@@ -88,7 +88,7 @@ passport.use(
 );
 
 //Google Authentication
-/*
+
 passport.use(
   new GoogleStrategy(
     {
@@ -110,7 +110,7 @@ passport.use(
     }
   )
 );
-*/
+
 /*
 //Twitter Authentication
 passport.use(new TwitterStrategy({
@@ -124,7 +124,7 @@ function(token, tokenSecret, profile, cb) {
   });
 }
 ));
-
+*/
 
 //VKontakte Authentication
 passport.use(new VKontakteStrategy({
@@ -153,7 +153,7 @@ function(accessToken, refreshToken, profile, cb) {
   });
 }
 ));
-*/
+
 
 
 passport.serializeUser((user, done) => {
