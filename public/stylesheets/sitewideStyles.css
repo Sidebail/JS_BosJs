@@ -34,16 +34,17 @@ body{
   min-height: 100vh;
 }
 
-#content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
-}
+/* #content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height 
+} */
 
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 2.5rem;            /* Footer height */
-  
+  border-top: 2px solid var(--header-border);
+  background-color: var(--header-bg);
 }
 
 ul {
