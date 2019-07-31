@@ -111,7 +111,7 @@ passport.use(
   )
 );
 
-
+/*
 //Twitter Authentication
 passport.use(new TwitterStrategy({
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
@@ -124,7 +124,7 @@ function(token, tokenSecret, profile, cb) {
   });
 }
 ));
-
+*/
 
 //VKontakte Authentication
 passport.use(new VKontakteStrategy({
