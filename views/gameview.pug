@@ -56,7 +56,7 @@ body#content.gameview
                         li
                             button(class="btn btn-primary", hidden='hidden')#drop3.drop
         button(class="btn btn-primary")#die SURRENDER!?
-        textarea#gameText(readonly='', rows='6', cols='75')        
+        textarea#gameText(readonly='', rows='6', cols='75',style="overflow: hidden")        
         form(type="hidden" method="post")
             input(type="hidden" name="name" id="nameform")
             input(type="hidden" name="level" id="levelform")

@@ -114,3 +114,14 @@ footer{
   border-radius: 20px;
   border: 2px solid var(--header-border);
 }
+
+#lbTable{
+  background-color: var(--header-bg);
+  width: 80%;
+  margin: auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  border-radius: 20px;
+  border: 2px solid var(--header-border);
+  padding: 10px;
+}

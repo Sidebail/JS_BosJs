@@ -289,7 +289,7 @@ defHead.addEventListener('click', function(){
     enemyAttack();
     if(enemyAttackPos != "head"){
         playerChraracter.recieveDamage(enemyModel.attack);
-        updateGameText(`${enemyModel.name} attacks ${playerChraracter.name}'s head and deals ${enemyModel.attack} damage! Ouch!`);
+        updateGameText(`${enemyModel.name} attacks ${playerChraracter.name}'s ${enemyAttackPos} and deals ${enemyModel.attack} damage! Ouch!`);
         updateScene();
     }else{
         console.log(`${enemyModel.name} attacks ${playerChraracter.name}'s head but ${playerChraracter.name} blocks it! Not today!`);
@@ -300,7 +300,7 @@ defTorso.addEventListener('click', function(){
     enemyAttack();
     if(enemyAttackPos != "torso"){
         playerChraracter.recieveDamage(enemyModel.attack);
-        updateGameText(`${enemyModel.name} attacks ${playerChraracter.name}'s torso and deals ${enemyModel.attack} damage! Ouch!`);
+        updateGameText(`${enemyModel.name} attacks ${playerChraracter.name}'s ${enemyAttackPos} and deals ${enemyModel.attack} damage! Ouch!`);
         updateScene();
     }else{
         updateGameText(`${enemyModel.name} attacks ${playerChraracter.name}'s torso but ${playerChraracter.name} blocks it! Not today!`);
@@ -311,7 +311,7 @@ defLegs.addEventListener('click', function(){
     enemyAttack();
     if(enemyAttackPos != "legs"){
         playerChraracter.recieveDamage(enemyModel.attack);
-        updateGameText(`${enemyModel.name} attacks ${playerChraracter.name}'s legs and deals ${enemyModel.attack} damage! Ouch!`);
+        updateGameText(`${enemyModel.name} attacks ${playerChraracter.name}'s ${enemyAttackPos} and deals ${enemyModel.attack} damage! Ouch!`);
         updateScene();
     }else{
         updateGameText(`${enemyModel.name} attacks ${playerChraracter.name}'s legs but ${playerChraracter.name} blocks it! Not today!`);
@@ -376,6 +376,7 @@ updateGameText = function (newText)
 {
     document.getElementById('gameText').value += newText;
     document.getElementById('gameText').value += "\r"; 
+    document.getElementById('gameText').scrollTop = document.getElementById('gameText').scrollHeight;
 }
 //Switchers for the activity buttons
 switchToDefend = function(){
@@ -547,6 +548,8 @@ updateScene = function(){
   pHealth.textContent = `Health: ${playerChraracter.health}/${playerChraracter.maxHealth}`
   pAttack.textContent = `Attack: ${playerChraracter.attack}`;
   pArmor.textContent = `Armor: ${playerChraracter.armor}`;
+
+
 
   eName.textContent = enemyModel.name;
   eHealth.textContent = `Health: ${enemyModel.health}/${enemyModel.maxHealth}`
