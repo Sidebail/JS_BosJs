@@ -1,79 +1,83 @@
 extends layout
 block content
-   h1.text-center Hero has been (finally) defeated!
-   h1.text-center#pname= name
-   h3.text-center Your Final Score:
-   h3.text-center#level= level
-   h3.text-center Your Maximum Health:
-   h3.text-center= maxHealth
-   h3.text-center Your Attack:
-   h3.text-center= attack
-   h3.text-center Your Armor:
-   h3.text-center= armor
-   if e1name === ""
-    h3.text-center You didn't defeat a single one?! C'mon!
-   else
-    h3.text-center Last 3 defeated enemies:
-   table(style="margin: auto")
-       tr
-           td
-            if e1name !== ""
-               h4.text-center= e1name
-               ul
-                   li
-                       h5 Health
-                       h5.text-center= e1maxHealth
-                   li
-                       h5 Attack
-                       h5.text-center= e1attack
-                   li
-                       h5 Armor
-                       h5.text-center= e1armor
-           td
-            if e2name !== ""
-               h4.text-center= e2name
-               ul
-                   li
-                       h5 Health
-                       h5.text-center= e2maxHealth
-                   li
-                       h5 Attack
-                       h5.text-center= e2attack
-                   li
-                       h5 Armor
-                       h5.text-center= e2armor
-           td
-            if e3name !== ""
-               h4.text-center= e3name
-               ul
-                   li
-                       h5 Health
-                       h5.text-center= e3maxHealth
-                   li
-                       h5 Attack
-                       h5.text-center= e3attack
-                   li
-                       h5 Armor
-                       h5.text-center= e3armor
-   div.text-center
-       a.nav-link(href='/leaderboard', class="btn btn-primary", style="margin: 1px") Check yourself on leaderboard!
-       a.nav-link(href='/gameview', class="btn btn-primary", style="margin: 1px") Play Again!
-   table(style="margin: auto")
-        tr
-            td.twitter-share
-                i.fa.fa-twitter(style="margin-right: 5px")
-                span(data-js='twitter-share') Share on Twitter
-            td.facebook-share
-                i.fa.fa-facebook(style="margin-right: 5px")
-                span(data-js='facebook-share') Share on Facebook
-            td.vkontakte-share
-                i.fa.fa-vk(style="margin-right: 5px")
-                span#vkShare Share on VKontakte 
-   footer.footer.top-buffer(style="position: relative")
-       .footer-copyright.text-center 
-            a(href="https://www.linkedin.com/in/vladimir-vatsurin/") &copy; Vladimir "AscotBailey-2" Vatsurin, 
-            a(href="https://www.linkedin.com/in/ian-blanchette/") Ian Blanchette, 
-            a(href="https://www.linkedin.com/in/nathaniel-fisher/") Nathaniel Fisher
-   script(src='/src/socials.js') 
-   script(src='https://platform-api.sharethis.com/js/sharethis.js#property=5d38efbd42eb980012755e7c&product=inline-share-buttons')
+    #statsView
+        h1.text-center Hero has been (finally) defeated!
+        h1.text-center#pname.medium-header= name
+        h3.text-center.small-header Your Final Score:
+        h3.text-center#level= level
+        h3.text-center.small-header Your Maximum Health:
+        h3.text-center= maxHealth
+        h3.text-center.small-header Your Attack:
+        h3.text-center= attack
+        h3.text-center.small-header Your Armor:
+        h3.text-center= armor
+        if e1name === ""
+            h3.text-center You didn't defeat a single one?! C'mon!
+        else
+            h3.text-center.medium-header Last 3 defeated bosses:
+        table(style="margin: auto")
+            tr
+                td
+                    if e1name !== ""
+                        #enemyTab
+                            h4.text-center.small-header= e1name
+                            ul
+                                li
+                                    h5.enemyDefeatedStat.text-center Health
+                                    h5.text-center= e1maxHealth
+                                li
+                                    h5.enemyDefeatedStat.text-center Attack
+                                    h5.text-center= e1attack
+                                li
+                                    h5.enemyDefeatedStat.text-center Armor
+                                    h5.text-center= e1armor
+                td
+                    if e2name !== ""
+                        #enemyTab
+                            h4.text-center.small-header= e2name
+                            ul
+                                li
+                                    h5.enemyDefeatedStat.text-center Health
+                                    h5.text-center= e2maxHealth
+                                li
+                                    h5.enemyDefeatedStat.text-center Attack
+                                    h5.text-center= e2attack
+                                li
+                                    h5.enemyDefeatedStat.text-center Armor
+                                    h5.text-center= e2armor
+                td
+                    if e3name !== ""
+                        #enemyTab
+                            h4.text-center.small-header= e3name
+                            ul
+                                li
+                                    h5.enemyDefeatedStat.text-center Health
+                                    h5.text-center= e3maxHealth
+                                li
+                                    h5.enemyDefeatedStat.text-center Attack
+                                    h5.text-center= e3attack
+                                li
+                                    h5.enemyDefeatedStat.text-center Armor
+                                    h5.text-center= e3armor
+    div.text-center#statsButtons
+        a#toLeaderBoard.nav-link(href='/leaderboard', class="btn btn-primary", style="margin: 1px") Check yourself on leaderboard!
+        a.playBtn.nav-link(href='/gameview', class="btn btn-primary", style="margin: 1px") Play Again!
+    table(style="margin: auto")
+            tr
+                td.twitter-share
+                    i.fa.fa-twitter(style="margin-right: 5px")
+                    span(data-js='twitter-share') Share on Twitter
+                td.facebook-share
+                    i.fa.fa-facebook(style="margin-right: 5px")
+                    span(data-js='facebook-share') Share on Facebook
+                td.vkontakte-share
+                    i.fa.fa-vk(style="margin-right: 5px")
+                    span#vkShare Share on VKontakte 
+    footer.footer.top-buffer(style="position: relative")
+        .footer-copyright.text-center 
+                a(href="https://www.linkedin.com/in/vladimir-vatsurin/") &copy; Vladimir "AscotBailey-2" Vatsurin, 
+                a(href="https://www.linkedin.com/in/ian-blanchette/") Ian Blanchette, 
+                a(href="https://www.linkedin.com/in/nathaniel-fisher/") Nathaniel Fisher
+    script(src='/src/socials.js') 
+    script(src='https://platform-api.sharethis.com/js/sharethis.js#property=5d38efbd42eb980012755e7c&product=inline-share-buttons')
 

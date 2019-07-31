@@ -1,6 +1,13 @@
 /*
-    Code is taken from
+    Some parts of code is taken from
     https://codepen.io/Huskie/pen/wKphk
+
+*/
+/*
+    Filename - socials.js
+    File collaborators - Vladimir Vatsurin
+    File description - File, that handles the social networks sharing.
+
 */
 var twitterShare = document.querySelector('[data-js="twitter-share"]');
 //var name = document.getElementById('pname');

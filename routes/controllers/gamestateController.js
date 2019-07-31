@@ -3,7 +3,7 @@ const express = require('express');
 //const Player = require('../../models/player');
 //const EnemyModel = require('../../models/enemy');
 
-/* THIS IS TEMPORARY */
+/* THIS IS NOT USED */
 
 //Declaring the view components 
 //const pHealth = document.getElementById('pHealth');

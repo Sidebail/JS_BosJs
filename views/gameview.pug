@@ -22,11 +22,11 @@ body#content.gameview
                 td 
                     ul
                         li
-                            button(class="btn btn-primary")#defHead Defend Head
+                            button(class="btn btn-primary")#defHead.dfBtn Defend Head
                         li
-                            button(class="btn btn-primary")#defTorso Defend Torso
+                            button(class="btn btn-primary")#defTorso.dfBtn Defend Torso
                         li
-                            button(class="btn btn-primary")#defLegs Defend Legs
+                            button(class="btn btn-primary")#defLegs.dfBtn Defend Legs
                 td 
                     ul
                         li
@@ -50,13 +50,13 @@ body#content.gameview
                 td 
                     ul
                         li
-                            button(class="btn btn-primary",hidden='hidden')#drop1
+                            button(class="btn btn-primary",hidden='hidden')#drop1.drop
                         li
-                            button(class="btn btn-primary",hidden='hidden')#drop2
+                            button(class="btn btn-primary",hidden='hidden')#drop2.drop
                         li
-                            button(class="btn btn-primary", hidden='hidden')#drop3 
-        textarea#gameText(readonly='', rows='10', cols='75')
+                            button(class="btn btn-primary", hidden='hidden')#drop3.drop
         button(class="btn btn-primary")#die SURRENDER!?
+        textarea#gameText(readonly='', rows='6', cols='75',style="overflow: hidden")        
         form(type="hidden" method="post")
             input(type="hidden" name="name" id="nameform")
             input(type="hidden" name="level" id="levelform")

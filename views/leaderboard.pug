@@ -3,31 +3,65 @@ extends layout
 block content
 	.container
 	if isAuthenticated
-		h2.text-center 100 Best Boss-Killers!
-		.table-responsive
-			table.table
-				thead
-					tr
-						th #
-						th Name
-						th Level
-						th Health
-						th Attack
-						th Enemy Name 1
-						th Enemy Name 2
-						th Enemy Name 3
-				tbody
-				each player, index in players
-					tr
-						td= index + 1
-						td= player.name
-						td= player.level
-						td= player.health
-						td= player.attack
-						td= player.lastThreeEnemies[0].name
-						td= player.lastThreeEnemies[1].name
-						td= player.lastThreeEnemies[2].name
-			h3.text-center Didn't find yourself? Try better and compete for the 1st place!
+		#lbTable
+			h2.text-center 100 Best Boss-Killers!
+			.table-responsive
+				table.table
+					thead
+						tr
+							th #
+							th Name
+							th Level
+							th Health
+							th Attack
+							th Boss Name 1
+							th Boss Name 2
+							th Boss Name 3
+					tbody
+					each player, index in players
+						if index == 0
+							tr(style="background-color: rgb(255, 248, 156);")
+								td= index + 1
+								td= player.name
+								td= player.level
+								td= player.health
+								td= player.attack
+								td= player.lastThreeEnemies[0].name
+								td= player.lastThreeEnemies[1].name
+								td= player.lastThreeEnemies[2].name
+						else
+							if index == 1
+								tr(style="background-color: rgb(212, 212, 212);")
+									td= index + 1
+									td= player.name
+									td= player.level
+									td= player.health
+									td= player.attack
+									td= player.lastThreeEnemies[0].name
+									td= player.lastThreeEnemies[1].name
+									td= player.lastThreeEnemies[2].name
+							else
+								if index == 2
+									tr(style="background-color: rgb(217, 181, 89);")
+										td= index + 1
+										td= player.name
+										td= player.level
+										td= player.health
+										td= player.attack
+										td= player.lastThreeEnemies[0].name
+										td= player.lastThreeEnemies[1].name
+										td= player.lastThreeEnemies[2].name
+								else
+									tr
+										td= index + 1
+										td= player.name
+										td= player.level
+										td= player.health
+										td= player.attack
+										td= player.lastThreeEnemies[0].name
+										td= player.lastThreeEnemies[1].name
+										td= player.lastThreeEnemies[2].name
+				h3.text-center Didn't find yourself? Try better and compete for the 1st place!
 		footer.footer.top-buffer(style="position: relative")
 			.footer-copyright.text-center 
 				a(href="https://www.linkedin.com/in/vladimir-vatsurin/") &copy; Vladimir "AscotBailey-2" Vatsurin, 

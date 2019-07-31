@@ -1,0 +1,127 @@
+/* color variables */
+:root {
+  --header-bg: #f2eecb; /* little greene old paper */
+  --header-border: #ad6f69 ; /* copper penny */
+  --related-green: #7fb875;
+}
+
+a {
+  color: #00B7FF;
+}
+textarea
+{
+	margin-left: 3em;
+	resize: none;
+}
+
+#content{
+  max-width: 500px;
+  margin: auto;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.facebook-share {
+  background: #3b5998;
+  
+}
+body{
+  height: 100%;
+  padding: 0;
+  font-family: 'Aldrich';
+  background-image: url("https://i.ibb.co/17q0WXK/backgroundarena5.png");
+  background-color: rgb(168, 144, 96);
+  background-repeat: no-repeat;
+}
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* #content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height 
+} */
+
+nav {
+  border-bottom: 2px solid var(--header-border);
+  background-color: rgb(255, 248, 156);     
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.main-text {
+  background-color: var(--header-bg);
+  border-radius: 20px;
+  padding: 2px;
+}
+
+.medium-header {
+  background-color: var(--header-bg);
+  border-radius: 20px;
+  border: 2px solid var(--header-border);
+  padding: 10px;
+}
+
+.small-header {
+  background-color: var(--header-bg);
+  border-radius: 20px;
+  padding: 2px;
+}
+
+.enemyDefeatedStat {
+  border-bottom: 1px solid var(--header-border);
+
+}
+
+#toLeaderBoard {
+  background-color: var(--header-border);
+  border-color: var(--header-border);
+}
+
+.playBtn {
+  background-color: var(--related-green);
+  border-color: var(--related-green);
+}
+
+.playBtn:hover {
+  background-color: #a0da95;
+  border-color: #a0da95;
+}
+
+footer{
+  border-top: 2px solid var(--header-border);
+}
+
+#statsView{
+  background-color: rgb(255, 248, 156);
+  width: 70%;
+  margin: auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  border-radius: 20px;
+  border: 2px solid var(--header-border);
+  padding: 10px;
+}
+
+#statsButtons{
+  width: 20%;
+  margin: auto;
+}
+
+#enemyTab{
+  border-radius: 20px;
+  border: 2px solid var(--header-border);
+}
+
+#lbTable{
+  background-color: var(--header-bg);
+  width: 80%;
+  margin: auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  border-radius: 20px;
+  border: 2px solid var(--header-border);
+  padding: 10px;
+}

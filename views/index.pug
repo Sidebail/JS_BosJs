@@ -1,14 +1,17 @@
 extends layout
 
 block content
-	div.container.text-center
+	//Filename - index.pug
+	//File collaborators - Vladimir Vatsurin, Nathaniel Fischer, Ian Blanchette
+	//File description - The main index page, and landing page of the site that welcomes the user and explains the purpose of the website
+	div.container.text-center.main-text
 		h1 Welcome to #{title}
 		p Input yout nickname:
 		// turn into form with post method
 		form(method="post")
 			input(type="text" name="nickname")
 			p
-			button(class="btn btn-primary") Play Game
+			button(class="btn btn-primary playBtn") Play Game
 		#tutorial
 			p BosJS is a little JavaScript written game, where you, as a hero, have to fight numerous bosses and upgrade yourself!
 			p
@@ -27,7 +30,7 @@ block content
 			p
 			a  Fight as more bosses as you can and make it to the top of the leaderboard!
 			p
-			a(href="https://github.com/Sidebail/JS_BosJs/wiki") For more information, check out the wiki!
+			a(href="https://github.com/Sidebail/JS_BosJs/wiki").small-header For more information, check out the wiki!
 			p
 	footer.footer.top-buffer(style="position: relative;")
 		.footer-copyright.text-center 

@@ -1,3 +1,11 @@
+/*
+    Filename - index.js
+    File collaborators - Ian Blanchette, Nathaniel Fischer
+    File description -  Index file with posts, gets and redirection, 
+                        prepared for the MongoDB
+
+*/
+
 const Enemy = require('../models/enemy');
 const Player = require('../models/player');
 const Players = require('./controllers/leaderboard');
@@ -9,6 +17,7 @@ var enemy1;
 var enemy2;
 var enemy3;
 var player;
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
