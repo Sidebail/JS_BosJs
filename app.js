@@ -9,11 +9,11 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-/*const GithubStrategy = require('passport-github').Strategy;
+const GithubStrategy = require('passport-github').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const TwitterStrategy = require('passport-twitter').Strategy;
 const VKontakteStrategy = require('passport-vkontakte').Strategy;
-const FacebookStrategy = require('passport-facebook').Strategy;*/
+const FacebookStrategy = require('passport-facebook').Strategy;
 const User = require('./models/user');
 
 // connect mongoose
@@ -64,7 +64,7 @@ app.use((req, res, next) => {
 passport.use(new LocalStrategy(User.authenticate()));
 
 
-/*//GITHUB AUTHENTICATION
+//GITHUB AUTHENTICATION
 
 passport.use(
   new GithubStrategy(
@@ -166,7 +166,7 @@ passport.deserializeUser((id, done) => {
     done(null, user);
   });
 });
-*/
+
 //passport.serializeUser(User.serializeUser());
 //passport.deserializeUser(User.deserializeUser());
 
