@@ -1,7 +1,7 @@
 extends layout
 
 block content
-	div.container.text-center
+	div.container.text-center.main-text
 		h1 Welcome to #{title}
 		p Input yout nickname:
 		// turn into form with post method
@@ -27,7 +27,7 @@ block content
 			p
 			a  Fight as more bosses as you can and make it to the top of the leaderboard!
 			p
-			a(href="https://github.com/Sidebail/JS_BosJs/wiki") For more information, check out the wiki!
+			a(href="https://github.com/Sidebail/JS_BosJs/wiki").small-header For more information, check out the wiki!
 			p
 	footer.footer.top-buffer(style="position: relative;")
 		.footer-copyright.text-center 

@@ -38,18 +38,29 @@ body{
   padding-bottom: 2.5rem;    /* Footer height 
 } */
 
+nav {
+  border-bottom: 2px solid var(--header-border);
+}
+
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 2.5rem;            /* Footer height */
+  padding-top: 5px;
   border-top: 2px solid var(--header-border);
-  background-color: var(--header-bg);
+  background-color: black;
 }
 
 ul {
   list-style-type: none;
   padding-left: 0px;
+}
+
+.main-text {
+  background-color: var(--header-bg);
+  border-radius: 20px;
+  padding: 2px;
 }
 
 .medium-header {
