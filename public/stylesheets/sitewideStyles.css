@@ -28,6 +28,9 @@ body{
   height: 100%;
   padding: 0;
   font-family: 'Aldrich';
+  background-image: url("https://i.ibb.co/17q0WXK/backgroundarena5.png");
+  background-color: rgb(168, 144, 96);
+  background-repeat: no-repeat;
 }
 #page-container {
   position: relative;
@@ -40,16 +43,7 @@ body{
 
 nav {
   border-bottom: 2px solid var(--header-border);
-}
-
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;            /* Footer height */
-  padding-top: 5px;
-  border-top: 2px solid var(--header-border);
-  background-color: black;
+  background-color: rgb(255, 248, 156);     
 }
 
 ul {
@@ -94,4 +88,29 @@ ul {
 .playBtn:hover {
   background-color: #a0da95;
   border-color: #a0da95;
+}
+
+footer{
+  border-top: 2px solid var(--header-border);
+}
+
+#statsView{
+  background-color: rgb(255, 248, 156);
+  width: 70%;
+  margin: auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  border-radius: 20px;
+  border: 2px solid var(--header-border);
+  padding: 10px;
+}
+
+#statsButtons{
+  width: 20%;
+  margin: auto;
+}
+
+#enemyTab{
+  border-radius: 20px;
+  border: 2px solid var(--header-border);
 }
