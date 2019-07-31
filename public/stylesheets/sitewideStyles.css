@@ -90,3 +90,8 @@ ul {
   background-color: var(--related-green);
   border-color: var(--related-green);
 }
+
+.playBtn:hover {
+  background-color: #a0da95;
+  border-color: #a0da95;
+}
