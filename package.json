@@ -24,7 +24,7 @@
     "passport-local-mongoose": "^5.0.1",
     "passport-twitter": "^1.0.4",
     "passport-vkontakte": "^0.3.2",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "twitter": "^1.7.1"
   },
   "devDependencies": {
